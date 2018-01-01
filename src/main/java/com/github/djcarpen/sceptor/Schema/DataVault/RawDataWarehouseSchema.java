@@ -21,7 +21,7 @@ public class RawDataWarehouseSchema implements Schema {
 
     public List<HiveTable> getTables(){
         dataVaultTables = new ArrayList<>();
-        dataVaultTables.addAll(hub.getHubs());
+        dataVaultTables.addAll(hub.getHubTables());
         dataVaultTables.addAll(satellite.getSatellites());
         dataVaultTables.addAll(link.getLinks());
         return dataVaultTables;
