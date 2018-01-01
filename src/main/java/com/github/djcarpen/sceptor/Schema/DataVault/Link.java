@@ -4,44 +4,43 @@ import com.github.djcarpen.sceptor.Schema.HiveTable;
 import com.github.djcarpen.sceptor.Schema.SourceSchema;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Link {
-    private HiveTable link;
-    private List<HiveTable> links = new ArrayList<>();
+public class Link implements DataVaultSchema {
+
+    private List<HiveTable> linkTables = new ArrayList<>();
     private HiveTable.HiveColumn linkKey;
     private HiveTable.HiveColumn loadDate;
     private List<HiveTable.HiveColumn> linkColumns;
 
-    public List<HiveTable> getLinks() {
-        return links;
+    public List<HiveTable> getTables() {
+        return linkTables;
     }
 
-    public void generateLinks(SourceSchema sourceSchema){
+    public void generateTables(SourceSchema sourceSchema) {
         for (HiveTable t : sourceSchema.getTables()) {
-            generateLinkColumns(t);
+            generateColumns(t);
             if (linkColumns.size() > 0) {
-            link = new HiveTable();
-            link.setDatabaseName(t.getDatabaseName());
-            link.setTableName("L_"+t.getTableName());
+                HiveTable linkTable = new HiveTable();
+                linkTable.setDatabaseName(t.getDatabaseName());
+                linkTable.setTableName("L_" + t.getTableName());
             for (HiveTable.HiveColumn c : linkColumns) {
-                link.addColumn(c);
+                linkTable.addColumn(c);
             }
-            links.add(link);
+                linkTables.add(linkTable);
         }
         }
 
     }
 
-    public void generateLinkColumns(HiveTable sourceTable) {
-        linkKey = new HiveTable.HiveColumn("lk_" + sourceTable.getTableName(), "STRING"); // create link key column
+    public void generateColumns(HiveTable sourceTable) {
+        linkKey = new HiveTable.HiveColumn("lk_" + sourceTable.getTableName(), "STRING"); // create linkTable key column
         loadDate = new HiveTable.HiveColumn("load_dt", "TIMESTAMP");
         linkColumns = new ArrayList<>();
         for (HiveTable.HiveColumn c : sourceTable.getColumns()) {
 
-            if (c.getIsBusinessKey() == false && c.getIsSurrogateKey() == false && !c.getForeignKeyColumn().isEmpty()) {
+            if (!c.getIsBusinessKey() && !c.getIsSurrogateKey() && !c.getForeignKeyColumn().isEmpty()) {
                 if (c.getColumnName().replace("_id", "").equals(c.getForeignKeyColumn())) {
 
                     HiveTable.HiveColumn linkColumn = new HiveTable.HiveColumn("hk_" + c.getForeignKeyTable(), "STRING");
@@ -49,17 +48,17 @@ public class Link {
                     linkColumn.setForeignKeyTable("H_"+c.getForeignKeyTable());
                     linkColumns.add(linkColumn);
                 } else {
-                    determineLinkColumnDefinition(c);
+                    linkColumns.add(determineLinkColumnDefinition(c));
 
                 }
             }
 
 
         }
-        if (linkColumns.size() > 0) linkColumns = sortLinkColumns(linkKey, linkColumns, loadDate);
+        if (linkColumns.size() > 0) linkColumns = sortColumns();
     }
 
-    public HiveTable.HiveColumn determineLinkColumnDefinition(HiveTable.HiveColumn foreignKeyColumn) {
+    private HiveTable.HiveColumn determineLinkColumnDefinition(HiveTable.HiveColumn foreignKeyColumn) {
         HiveTable.HiveColumn mappedLinkColumn;
 
         List<String> foreignKeyTokens = new ArrayList<>();
@@ -105,13 +104,10 @@ public class Link {
         return mappedLinkColumn;
         }
 
-    public List<HiveTable.HiveColumn> sortLinkColumns (HiveTable.HiveColumn linkKey, List<HiveTable.HiveColumn> linkColumns, HiveTable.HiveColumn loadDate) {
-        this.linkKey = linkKey;
-        this.linkColumns = linkColumns;
-        this.loadDate = loadDate;
+    public List<HiveTable.HiveColumn> sortColumns() {
         List<HiveTable.HiveColumn> columnList = new ArrayList<>();
          columnList.add(linkKey);
-            Collections.sort(linkColumns, new HiveTable.OrderByHiveColumnName());
+        linkColumns.sort(new HiveTable.OrderByHiveColumnName());
             columnList.addAll(linkColumns);
             columnList.add(loadDate);
             for (HiveTable.HiveColumn c : columnList) {

@@ -2,7 +2,6 @@ package com.github.djcarpen.sceptor;
 
 import com.github.djcarpen.sceptor.DDL.RawDataWarehouseDDL;
 import com.github.djcarpen.sceptor.Schema.DataVault.RawDataWarehouseSchema;
-import com.github.djcarpen.sceptor.Schema.HiveTable;
 import com.github.djcarpen.sceptor.Schema.Schema;
 import com.github.djcarpen.sceptor.Schema.SourceSchema;
 import com.github.djcarpen.sceptor.Utils.JsonDeserializer;

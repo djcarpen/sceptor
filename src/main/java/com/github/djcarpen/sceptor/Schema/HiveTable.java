@@ -35,9 +35,9 @@ public class HiveTable {
             return columns;
         }
 
-        public void setColumns(List<HiveColumn> columns) {
-            this.columns = columns;
-        }
+//        public void setColumns(List<HiveColumn> columns) {
+//            this.columns = columns;
+//        }
 
         public void addColumn(HiveColumn column) {
 
@@ -49,25 +49,25 @@ public class HiveTable {
             return communityName;
         }
 
-        public void setCommunityName(String communityName) {
-            this.communityName = communityName;
-        }
+//        public void setCommunityName(String communityName) {
+//            this.communityName = communityName;
+//        }
 
         public String getAppCode() {
             return appCode;
         }
 
-        public void setAppCode(String appCode) {
-            this.appCode = appCode;
-        }
+//        public void setAppCode(String appCode) {
+//            this.appCode = appCode;
+//        }
 
         public String getModuleCode() {
             return moduleCode;
         }
 
-        public void setModuleCode(String moduleCode) {
-            this.moduleCode = moduleCode;
-        }
+//        public void setModuleCode(String moduleCode) {
+//            this.moduleCode = moduleCode;
+//        }
 
         public static class HiveColumn {
             private String columnName;
@@ -79,7 +79,8 @@ public class HiveTable {
             private String foreignKeyTable;
             private String foreignKeyColumn;
 
-            public HiveColumn(){};
+            public HiveColumn() {
+            }
 
             public HiveColumn(String cn, String dt) {
                 this.columnName = cn;
@@ -102,37 +103,37 @@ public class HiveTable {
                 this.dataType = dataType;
             }
 
-            public Integer getColumnOrder() {
-                return columnOrder;
-            }
+//            public Integer getColumnOrder() {
+//                return columnOrder;
+//            }
 
             public void setColumnOrder(Integer columnOrder) {
                 this.columnOrder = columnOrder;
             }
 
-            public boolean getIsPrimaryKey() {
-                return isPrimaryKey;
-            }
-
-            public void setIsPrimaryKey(boolean primaryKey) {
-                isPrimaryKey = primaryKey;
-            }
+//            public boolean getIsPrimaryKey() {
+//                return isPrimaryKey;
+//            }
+//
+//            public void setIsPrimaryKey(boolean primaryKey) {
+//                isPrimaryKey = primaryKey;
+//            }
 
             public boolean getIsBusinessKey() {
                 return isBusinessKey;
             }
 
-            public void setIsBusinessKey(boolean businessKey) {
-                isBusinessKey = businessKey;
-            }
+//            public void setIsBusinessKey(boolean businessKey) {
+//                isBusinessKey = businessKey;
+//            }
 
             public boolean getIsSurrogateKey() {
                 return isSurrogateKey;
             }
 
-            public void setIsSurrogateKey(boolean surrogateKey) {
-                isSurrogateKey = surrogateKey;
-            }
+//            public void setIsSurrogateKey(boolean surrogateKey) {
+//                isSurrogateKey = surrogateKey;
+//            }
 
             public String getForeignKeyTable() {
                 return foreignKeyTable;

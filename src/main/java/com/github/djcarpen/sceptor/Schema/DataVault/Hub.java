@@ -4,28 +4,25 @@ import com.github.djcarpen.sceptor.Schema.HiveTable;
 import com.github.djcarpen.sceptor.Schema.SourceSchema;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class Hub {
+public class Hub implements DataVaultSchema {
 
-    private HiveTable hubTable;
     private List<HiveTable> hubTables = new ArrayList<>();
-    private HiveTable.HiveColumn businessKey;
     private HiveTable.HiveColumn hubKey;
     private HiveTable.HiveColumn loadDate;
     private List<HiveTable.HiveColumn> businessKeys;
     private List<HiveTable.HiveColumn> hubColumns;
 
-    public List<HiveTable> getHubTables() {
+    public List<HiveTable> getTables() {
         return hubTables;
     }
 
-    public void generateHubs(SourceSchema sourceSchema){
+    public void generateTables(SourceSchema sourceSchema) {
         for (HiveTable t : sourceSchema.getTables()) {
-            generateHubColumns(t);
+            generateColumns(t);
             if (!hubColumns.isEmpty()) {
-                hubTable = new HiveTable();
+                HiveTable hubTable = new HiveTable();
                 hubTable.setDatabaseName(t.getDatabaseName());
                 hubTable.setTableName("H_" + t.getTableName());
 //            System.out.println("HUB Tablename: " + hubTable.getTableName());
@@ -38,14 +35,15 @@ public class Hub {
         }
     }
 
-    public void generateHubColumns(HiveTable sourceTable) {
+    public void generateColumns(HiveTable sourceTable) {
         hubKey = new HiveTable.HiveColumn("hk_" + sourceTable.getTableName(), "STRING"); // create hubTable key column
-        loadDate = new HiveTable.HiveColumn("load_dt","TIMESTAMP");
+        loadDate = new HiveTable.HiveColumn("load_dt", "TIMESTAMP");
         businessKeys = new ArrayList<>();
         for (HiveTable.HiveColumn c : sourceTable.getColumns()) {
-            if (c.getIsBusinessKey() == true) {
+            if (!c.getIsBusinessKey()) {
 
-                businessKey = new HiveTable.HiveColumn();
+                HiveTable.HiveColumn businessKey = new HiveTable.HiveColumn();
+
                 if (c.getColumnName().equals("id")) {
                     businessKey.setColumnName(sourceTable.getTableName() + "_" + c.getColumnName()); // prepend table name to id columns
                 } else {
@@ -54,19 +52,16 @@ public class Hub {
                 businessKey.setDataType(c.getDataType());
 
                 businessKeys.add(businessKey);
-                }
             }
-            hubColumns = new ArrayList<>();
-            hubColumns = sortHubColumns(hubKey, businessKeys, loadDate);
         }
+        hubColumns = new ArrayList<>();
+        hubColumns = sortColumns();
+    }
 
-    public List<HiveTable.HiveColumn> sortHubColumns (HiveTable.HiveColumn hubKey, List<HiveTable.HiveColumn> businessKeys, HiveTable.HiveColumn loadDate) {
-        this.hubKey = hubKey;
-        this.businessKeys = businessKeys;
-        this.loadDate = loadDate;
+    public List<HiveTable.HiveColumn> sortColumns() {
         List<HiveTable.HiveColumn> columnList = new ArrayList<>();
         columnList.add(hubKey);
-        Collections.sort(businessKeys, new HiveTable.OrderByHiveColumnName());
+        businessKeys.sort(new HiveTable.OrderByHiveColumnName());
         columnList.addAll(businessKeys);
         columnList.add(loadDate);
         for (HiveTable.HiveColumn c : columnList) {
@@ -74,7 +69,6 @@ public class Hub {
         }
         return columnList;
     }
-
 
 
 }
