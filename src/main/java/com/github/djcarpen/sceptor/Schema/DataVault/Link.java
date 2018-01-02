@@ -85,21 +85,21 @@ public class Link implements DataVaultSchema {
             mappedLinkColumn.setForeignKeyTable("H_"+foreignKeyColumn.getForeignKeyTable());
 //            mappedLinkColumn.setColumnName("hk_" + foreignKeyColumn.getForeignKeyTable());
 //            mappedLinkColumn.setDataType("STRING");
-            linkColumns.add(mappedLinkColumn);
+            //linkColumns.add(mappedLinkColumn);
         } else if (hubKeyTokensSingular.containsAll(foreignKeyTokens)) {
             mappedLinkColumn = new HiveTable.HiveColumn("hk_" + foreignKeyColumn.getForeignKeyTable(),"STRING");
             mappedLinkColumn.setForeignKeyColumn("hk_" + foreignKeyColumn.getForeignKeyTable());
             mappedLinkColumn.setForeignKeyTable("H_"+foreignKeyColumn.getForeignKeyTable());
 //            mappedLinkColumn.setColumnName("hk_" + foreignKeyColumn.getForeignKeyTable());
 //            mappedLinkColumn.setDataType("STRING");
-            linkColumns.add(mappedLinkColumn);
+            //linkColumns.add(mappedLinkColumn);
         } else {
             mappedLinkColumn = new HiveTable.HiveColumn("hk_" + foreignKeyColumn.getForeignKeyTable() + "_" + foreignKeyColumn.getColumnName().replace("_id", ""),"STRING");
             mappedLinkColumn.setForeignKeyColumn("hk_" + foreignKeyColumn.getForeignKeyTable());
             mappedLinkColumn.setForeignKeyTable("H_"+foreignKeyColumn.getForeignKeyTable());
 //            mappedLinkColumn.setColumnName("hk_" + foreignKeyColumn.getForeignKeyTable() + "_" + foreignKeyColumn.getColumnName().replace("_id", ""));
 //            mappedLinkColumn.setDataType("STRING");
-            linkColumns.add(mappedLinkColumn);
+            //linkColumns.add(mappedLinkColumn);
         }
         return mappedLinkColumn;
         }

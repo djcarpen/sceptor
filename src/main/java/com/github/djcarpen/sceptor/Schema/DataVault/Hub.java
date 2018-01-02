@@ -40,7 +40,7 @@ public class Hub implements DataVaultSchema {
         loadDate = new HiveTable.HiveColumn("load_dt", "TIMESTAMP");
         businessKeys = new ArrayList<>();
         for (HiveTable.HiveColumn c : sourceTable.getColumns()) {
-            if (!c.getIsBusinessKey()) {
+            if (c.getIsBusinessKey()) {
 
                 HiveTable.HiveColumn businessKey = new HiveTable.HiveColumn();
 
@@ -53,6 +53,7 @@ public class Hub implements DataVaultSchema {
 
                 businessKeys.add(businessKey);
             }
+
         }
         hubColumns = new ArrayList<>();
         hubColumns = sortColumns();

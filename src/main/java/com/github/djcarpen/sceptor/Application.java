@@ -1,7 +1,10 @@
 package com.github.djcarpen.sceptor;
 
+import com.github.djcarpen.sceptor.DDL.DDL;
+import com.github.djcarpen.sceptor.DDL.RawDDL;
 import com.github.djcarpen.sceptor.DDL.RawDataWarehouseDDL;
 import com.github.djcarpen.sceptor.Schema.DataVault.RawDataWarehouseSchema;
+import com.github.djcarpen.sceptor.Schema.RawSchema;
 import com.github.djcarpen.sceptor.Schema.Schema;
 import com.github.djcarpen.sceptor.Schema.SourceSchema;
 import com.github.djcarpen.sceptor.Utils.JsonDeserializer;
@@ -23,8 +26,15 @@ public class Application {
         Schema rawDataWarehouseSchema = new RawDataWarehouseSchema();
         rawDataWarehouseSchema.generateTables(sourceSchema);
 
-        RawDataWarehouseDDL rawDataWarehouseDDL = new RawDataWarehouseDDL();
+        Schema rawSchema = new RawSchema();
+        rawSchema.generateTables(sourceSchema);
+
+        DDL rawDataWarehouseDDL = new RawDataWarehouseDDL();
         rawDataWarehouseDDL.writeDDL(Zone.RDW,rawDataWarehouseSchema,ddlPathRDW);
         rawDataWarehouseDDL.writeDDL(Zone.BDW,rawDataWarehouseSchema,ddlPathRDW);
+
+        DDL rawDDL = new RawDDL();
+        rawDDL.writeDDL(Zone.STAGING, rawSchema, ddlPathRDW);
+        rawDDL.writeDDL(Zone.TRANSIENT, rawSchema, ddlPathRDW);
     }
 }
