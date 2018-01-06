@@ -1,6 +1,5 @@
 package com.github.djcarpen.sceptor;
 
-import com.github.djcarpen.sceptor.DDL.DDLGenerator;
 import com.github.djcarpen.sceptor.Schema.DataDictionary;
 import com.github.djcarpen.sceptor.Utils.JsonDeserializer;
 
@@ -11,7 +10,7 @@ public class Application {
     public static void main(final String[] args) throws IOException {
 
         String jsonPath = "/Users/dc185246/Desktop/demo/json";
-        //String ddlBastPath = "/Users/dc185246/Desktop/Demo/rdw";
+        String ddlBastPath = "/Users/dc185246/Desktop/demo/ddl";
 
         JsonDeserializer jsonDeserializer = new JsonDeserializer();
 
@@ -20,9 +19,10 @@ public class Application {
 
         DDLGenerator ddlGenerator = new DDLGenerator();
         ddlGenerator.generateSchemas(dataDictionary);
-        ddlGenerator.getDDL(Zone.STAGING);
-        ddlGenerator.getDDL(Zone.TRANSIENT);
-        ddlGenerator.getDDL(Zone.RDW);
-        ddlGenerator.getDDL(Zone.BDW);
+
+        ddlGenerator.generateFiles(Zone.STAGING, ddlBastPath + "/staging");
+        ddlGenerator.generateFiles(Zone.TRANSIENT, ddlBastPath + "/transient");
+        ddlGenerator.generateFiles(Zone.RDW, ddlBastPath + "/rdw");
+        ddlGenerator.generateFiles(Zone.BDW, ddlBastPath + "/bdw");
     }
 }
