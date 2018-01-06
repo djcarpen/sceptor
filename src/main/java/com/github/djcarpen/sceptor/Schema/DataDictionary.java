@@ -3,7 +3,7 @@ package com.github.djcarpen.sceptor.Schema;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SourceSchema {
+public class DataDictionary {
     private List<HiveTable> tables = new ArrayList<>();
 
     public void addTable(HiveTable hiveTable) {

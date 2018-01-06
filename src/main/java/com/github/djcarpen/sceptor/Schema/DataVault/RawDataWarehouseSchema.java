@@ -1,8 +1,8 @@
 package com.github.djcarpen.sceptor.Schema.DataVault;
 
+import com.github.djcarpen.sceptor.Schema.DataDictionary;
 import com.github.djcarpen.sceptor.Schema.HiveTable;
 import com.github.djcarpen.sceptor.Schema.Schema;
-import com.github.djcarpen.sceptor.Schema.SourceSchema;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,13 +17,13 @@ public class RawDataWarehouseSchema implements Schema {
     private DataVaultSchema link = new Link();
 
 
-    public void generateTables (SourceSchema sourceSchema) {
-        hub.generateTables(sourceSchema);
-        satellite.generateTables(sourceSchema);
-        link.generateTables(sourceSchema);
+    public void generateTables(DataDictionary dataDictionary) {
+        hub.generateTables(dataDictionary);
+        satellite.generateTables(dataDictionary);
+        link.generateTables(dataDictionary);
     }
 
-    public List<HiveTable> getTables(){
+    public List<HiveTable> getTables() {
         dataVaultTables = new ArrayList<>();
         dataVaultTables.addAll(hub.getTables());
         dataVaultTables.addAll(satellite.getTables());
@@ -31,6 +31,8 @@ public class RawDataWarehouseSchema implements Schema {
         return dataVaultTables;
     }
 
- }
+}
+
+
 
 

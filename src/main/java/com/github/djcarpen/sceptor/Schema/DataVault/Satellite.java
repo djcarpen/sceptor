@@ -1,7 +1,7 @@
 package com.github.djcarpen.sceptor.Schema.DataVault;
 
+import com.github.djcarpen.sceptor.Schema.DataDictionary;
 import com.github.djcarpen.sceptor.Schema.HiveTable;
-import com.github.djcarpen.sceptor.Schema.SourceSchema;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +21,8 @@ public class Satellite implements DataVaultSchema {
 
     }
 
-    public void generateTables(SourceSchema sourceSchema) {
-        for (HiveTable t : sourceSchema.getTables()) {
+    public void generateTables(DataDictionary dataDictionary) {
+        for (HiveTable t : dataDictionary.getTables()) {
             generateColumns(t);
             if (!satelliteColumns.isEmpty()) {
                 HiveTable satellite = new HiveTable();

@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Schema {
 
-    void generateTables(SourceSchema sourceSchema);
+    void generateTables(DataDictionary dataDictionary);
 
     List<HiveTable> getTables();
 
