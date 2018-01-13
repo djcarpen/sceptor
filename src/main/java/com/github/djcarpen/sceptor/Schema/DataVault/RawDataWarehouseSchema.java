@@ -9,27 +9,37 @@ import java.util.List;
 
 public class RawDataWarehouseSchema implements Schema {
 
-    private List<HiveTable> dataVaultTables;
 
-
+    private final DataVaultSchema satellite = new Satellite();
+    private final DataVaultSchema link = new Link();
     private DataVaultSchema hub = new Hub();
-    private DataVaultSchema satellite = new Satellite();
-    private DataVaultSchema link = new Link();
 
+    public List<HiveTable> getHubs() {
+        return hub.getTables();
+    }
 
+    public List<HiveTable> getLinks() {
+        return link.getTables();
+    }
+
+    public List<HiveTable> getSatellites() {
+        return satellite.getTables();
+    }
     public void generateTables(DataDictionary dataDictionary) {
         hub.generateTables(dataDictionary);
         satellite.generateTables(dataDictionary);
         link.generateTables(dataDictionary);
     }
 
+
     public List<HiveTable> getTables() {
-        dataVaultTables = new ArrayList<>();
+        List<HiveTable> dataVaultTables = new ArrayList<>();
         dataVaultTables.addAll(hub.getTables());
         dataVaultTables.addAll(satellite.getTables());
         dataVaultTables.addAll(link.getTables());
         return dataVaultTables;
     }
+
 
 }
 

@@ -1,9 +1,12 @@
 package com.github.djcarpen.sceptor;
 
 import com.github.djcarpen.sceptor.Schema.DataDictionary;
+import com.github.djcarpen.sceptor.Utils.HiveScriptGenerator;
 import com.github.djcarpen.sceptor.Utils.JsonDeserializer;
 
 import java.io.IOException;
+
+import static com.github.djcarpen.sceptor.Zone.RDW;
 
 public class Application {
 
@@ -15,14 +18,18 @@ public class Application {
         JsonDeserializer jsonDeserializer = new JsonDeserializer();
 
         DataDictionary dataDictionary;
-        dataDictionary = jsonDeserializer.generateSourceSchema(jsonPath);
+        dataDictionary = jsonDeserializer.generateDataDictionary(jsonPath);
 
-        DDLGenerator ddlGenerator = new DDLGenerator();
-        ddlGenerator.generateSchemas(dataDictionary);
+        HiveScriptGenerator hiveScriptGenerator = new HiveScriptGenerator();
+        hiveScriptGenerator.generateSchemas(dataDictionary);
 
-        ddlGenerator.generateFiles(Zone.STAGING, ddlBastPath + "/staging");
-        ddlGenerator.generateFiles(Zone.TRANSIENT, ddlBastPath + "/transient");
-        ddlGenerator.generateFiles(Zone.RDW, ddlBastPath + "/rdw");
-        ddlGenerator.generateFiles(Zone.BDW, ddlBastPath + "/bdw");
+//        hiveScriptGenerator.generateDDLFiles(STAGING, ddlBastPath + "/staging");
+//        hiveScriptGenerator.generateDDLFiles(TRANSIENT, ddlBastPath + "/transient");
+//        hiveScriptGenerator.generateDDLFiles(RDW, ddlBastPath + "/rdw");
+//        hiveScriptGenerator.generateDDLFiles(BDW, ddlBastPath + "/bdw");
+//
+//        hiveScriptGenerator.generateDMLFiles(STAGING,"");
+//        hiveScriptGenerator.generateDMLFiles(TRANSIENT,"");
+        hiveScriptGenerator.generateDMLFiles(RDW, "");
     }
 }

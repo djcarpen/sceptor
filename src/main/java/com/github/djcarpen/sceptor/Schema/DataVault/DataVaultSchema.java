@@ -9,7 +9,9 @@ import java.util.List;
 public interface DataVaultSchema extends Schema {
     void generateTables(DataDictionary dataDictionary);
 
-    void generateColumns(HiveTable sourceTable);
+    void generateColumns(DataDictionary.Table sourceTable);
+
+
 
     List<HiveTable.HiveColumn> sortColumns();
 }

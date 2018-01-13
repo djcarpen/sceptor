@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 
-public class FileWriter {
+class FileWriter {
 
     public void writeFile(String fileContents, String outputPath, String fileName) {
         File file = new File(outputPath + "/" + fileName);

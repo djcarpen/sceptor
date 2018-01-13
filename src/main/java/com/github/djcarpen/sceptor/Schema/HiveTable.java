@@ -6,13 +6,11 @@ import java.util.List;
 
 public class HiveTable {
 
-        private String databaseName;
-        private String communityName;
-        private String appCode;
-        private String moduleCode;
-        private String tableName;
-    private List<HiveColumn> partitionColumns = new ArrayList<>();
+    private final List<HiveColumn> partitionColumns = new ArrayList<>();
+    private final List<HiveColumn> columns = new ArrayList<>();
+    private String databaseName;
     private String hdfsLocation;
+    private String tableName;
 
     public String getHdfsLocation() {
         return hdfsLocation;
@@ -22,7 +20,6 @@ public class HiveTable {
         this.hdfsLocation = hdfsLocation;
     }
 
-
     public List<HiveColumn> getPartitionColumns() {
         return partitionColumns;
     }
@@ -30,158 +27,85 @@ public class HiveTable {
     public void addPartitionColumn(HiveColumn partitionColumn) {
         partitionColumns.add(partitionColumn);
     }
-        private List<HiveColumn> columns = new ArrayList<>();
 
-        public String getDatabaseName() {
-            return databaseName;
-        }
-
-        public void setDatabaseName(String databaseName) {
-            this.databaseName = databaseName;
-        }
-
-        public String getTableName() {
-            return tableName;
-        }
-
-        public void setTableName(String tableName) {
-            this.tableName = tableName;
-        }
-
-
-        public List<HiveColumn> getColumns() {
-            return columns;
-        }
-
-    public void setColumns(List<HiveColumn> columns) {
-        this.columns = columns;
+    public String getDatabaseName() {
+        return databaseName;
     }
 
-        public void addColumn(HiveColumn column) {
-
-            columns.add(column);
-
-        }
-
-        public String getCommunityName() {
-            return communityName;
-        }
-
-    public void setCommunityName(String communityName) {
-        this.communityName = communityName;
+    public void setDatabaseName(String databaseName) {
+        this.databaseName = databaseName;
     }
 
-        public String getAppCode() {
-            return appCode;
-        }
-
-    public void setAppCode(String appCode) {
-        this.appCode = appCode;
+    public String getTableName() {
+        return tableName;
     }
 
-        public String getModuleCode() {
-            return moduleCode;
-        }
-
-    public void setModuleCode(String moduleCode) {
-        this.moduleCode = moduleCode;
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
     }
 
-        public static class HiveColumn {
-            private String columnName;
-            private String dataType;
-            private Integer columnOrder;
-            private boolean isPrimaryKey;
-            private boolean isBusinessKey;
-            private boolean isSurrogateKey;
-            private String foreignKeyTable;
-            private String foreignKeyColumn;
+    public List<HiveColumn> getColumns() {
+        return columns;
+    }
 
-            public HiveColumn() {
-            }
+    public void addColumn(HiveColumn column) {
+        columns.add(column);
+    }
 
-            public HiveColumn(String cn, String dt) {
-                this.columnName = cn;
-                this.dataType = dt;
+    public static class HiveColumn {
 
-            }
-            public String getColumnName() {
-                return columnName;
-            }
+        private String columnName;
+        private String dataType;
+        private Integer columnOrder;
+        private boolean isPrimaryKey;
+        private boolean isBusinessKey;
+        private boolean isSurrogateKey;
+        private String foreignKeyTable;
+        private String foreignKeyColumn;
 
-            public void setColumnName(String columnName) {
-                this.columnName = columnName;
-            }
-
-            public String getDataType() {
-                return dataType;
-            }
-
-            public void setDataType(String dataType) {
-                this.dataType = dataType;
-            }
-
-            public Integer getColumnOrder() {
-                return columnOrder;
-            }
-
-            public void setColumnOrder(Integer columnOrder) {
-                this.columnOrder = columnOrder;
-            }
-
-            public boolean getIsPrimaryKey() {
-                return isPrimaryKey;
-            }
-
-            public void setIsPrimaryKey(boolean primaryKey) {
-                isPrimaryKey = primaryKey;
-            }
-
-            public boolean getIsBusinessKey() {
-                return isBusinessKey;
-            }
-
-            public void setIsBusinessKey(boolean businessKey) {
-                isBusinessKey = businessKey;
-            }
-
-            public boolean getIsSurrogateKey() {
-                return isSurrogateKey;
-            }
-
-            public void setIsSurrogateKey(boolean surrogateKey) {
-                isSurrogateKey = surrogateKey;
-            }
-
-            public String getForeignKeyTable() {
-                return foreignKeyTable;
-            }
-
-            public void setForeignKeyTable(String foreignKeyTable) {
-                this.foreignKeyTable = foreignKeyTable;
-            }
-
-            public String getForeignKeyColumn() {
-                return foreignKeyColumn;
-            }
-
-            public void setForeignKeyColumn(String foreignKeyColumn) {
-                this.foreignKeyColumn = foreignKeyColumn;
-            }
-
+        public HiveColumn() {
         }
 
-        public static class OrderByHiveColumnName implements Comparator<HiveColumn> {
-
-            public int compare(HiveColumn o1, HiveColumn o2) {
-                return o1.getColumnName().compareTo(o2.getColumnName());
-            }
+        public HiveColumn(String cn, String dt) {
+            this.columnName = cn;
+            this.dataType = dt;
         }
 
-        public static class OrderByHiveColumnOrder implements Comparator<HiveColumn> {
+        public String getColumnName() {
+            return columnName;
+        }
 
-            public int compare(HiveColumn o1, HiveColumn o2) {
-                return o1.columnOrder - o2.columnOrder;
-            }
+        public void setColumnName(String columnName) {
+            this.columnName = columnName;
+        }
+
+        public String getDataType() {
+            return dataType;
+        }
+
+        public void setDataType(String dataType) {
+            this.dataType = dataType;
+        }
+
+        public void setColumnOrder(Integer columnOrder) {
+            this.columnOrder = columnOrder;
+        }
+
+        public void setForeignKeyTable(String foreignKeyTable) {
+            this.foreignKeyTable = foreignKeyTable;
+        }
+
+        public void setForeignKeyColumn(String foreignKeyColumn) {
+            this.foreignKeyColumn = foreignKeyColumn;
+        }
+
+    }
+
+    public static class OrderByHiveColumnName implements Comparator<HiveColumn> {
+
+        public int compare(HiveColumn o1, HiveColumn o2) {
+            return o1.getColumnName().compareTo(o2.getColumnName());
         }
     }
+
+}

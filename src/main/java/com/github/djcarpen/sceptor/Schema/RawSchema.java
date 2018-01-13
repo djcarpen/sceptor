@@ -5,27 +5,32 @@ import java.util.List;
 
 public class RawSchema implements Schema {
 
-    private List<HiveTable> rawTables = new ArrayList<>();
-
+    private final List<HiveTable> rawTables = new ArrayList<>();
 
     public void generateTables(DataDictionary dataDictionary) {
-        for (HiveTable t : dataDictionary.getTables()) {
+        for (DataDictionary.Table t : dataDictionary.getTables()) {
             HiveTable rawTable = new HiveTable();
             rawTable.setDatabaseName(t.getCommunityName() + "_" + t.getAppCode() + "_" + t.getModuleCode() + "_" + t.getDatabaseName());
             rawTable.setTableName(t.getTableName());
             rawTable.setHdfsLocation(t.getHdfsLocation());
-            for (HiveTable.HiveColumn c : t.getColumns()) {
-                if (c.getColumnName().equals("edl_ingest_channel")) {
-                    HiveTable.HiveColumn partitionColumn = new HiveTable.HiveColumn(c.getColumnName(), c.getDataType());
-                    partitionColumn.setColumnOrder(0);
-                    rawTable.addPartitionColumn(partitionColumn);
-                } else if (c.getColumnName().equals("edl_ingest_time")) {
-                    HiveTable.HiveColumn partitionColumn = new HiveTable.HiveColumn(c.getColumnName(), c.getDataType());
-                    partitionColumn.setColumnOrder(1);
-                    rawTable.addPartitionColumn(partitionColumn);
-                } else {
-                    HiveTable.HiveColumn rawColumn = new HiveTable.HiveColumn(c.getColumnName(), c.getDataType());
-                    rawTable.addColumn(rawColumn);
+            for (DataDictionary.Table.Column c : t.getColumns()) {
+                switch (c.getColumnName()) {
+                    case "edl_ingest_channel": {
+                        HiveTable.HiveColumn partitionColumn = new HiveTable.HiveColumn(c.getColumnName(), c.getDataType());
+                        partitionColumn.setColumnOrder(0);
+                        rawTable.addPartitionColumn(partitionColumn);
+                        break;
+                    }
+                    case "edl_ingest_time": {
+                        HiveTable.HiveColumn partitionColumn = new HiveTable.HiveColumn(c.getColumnName(), c.getDataType());
+                        partitionColumn.setColumnOrder(1);
+                        rawTable.addPartitionColumn(partitionColumn);
+                        break;
+                    }
+                    default:
+                        HiveTable.HiveColumn rawColumn = new HiveTable.HiveColumn(c.getColumnName(), c.getDataType());
+                        rawTable.addColumn(rawColumn);
+                        break;
                 }
             }
             rawTables.add(rawTable);
