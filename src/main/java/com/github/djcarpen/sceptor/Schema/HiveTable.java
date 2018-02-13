@@ -11,6 +11,15 @@ public class HiveTable {
     private String databaseName;
     private String hdfsLocation;
     private String tableName;
+    private String sourceTableName;
+
+    public String getSourceTableName() {
+        return sourceTableName;
+    }
+
+    public void setSourceTableName(String sourceTableName) {
+        this.sourceTableName = sourceTableName;
+    }
 
     public String getHdfsLocation() {
         return hdfsLocation;
@@ -62,6 +71,24 @@ public class HiveTable {
         private boolean isSurrogateKey;
         private String foreignKeyTable;
         private String foreignKeyColumn;
+        private String sourceTableName;
+        private String sourceColumnName;
+
+        public String getSourceTableName() {
+            return sourceTableName;
+        }
+
+        public void setSourceTableName(String sourceTableName) {
+            this.sourceTableName = sourceTableName;
+        }
+
+        public String getSourceColumnName() {
+            return sourceColumnName;
+        }
+
+        public void setSourceColumnName(String sourceColumnName) {
+            this.sourceColumnName = sourceColumnName;
+        }
 
         public HiveColumn() {
         }
@@ -99,11 +126,15 @@ public class HiveTable {
             this.foreignKeyColumn = foreignKeyColumn;
         }
 
+        public String getForeignKeyTable() {
+            return foreignKeyTable;
+        }
     }
 
     public static class OrderByHiveColumnName implements Comparator<HiveColumn> {
 
         public int compare(HiveColumn o1, HiveColumn o2) {
+
             return o1.getColumnName().compareTo(o2.getColumnName());
         }
     }
