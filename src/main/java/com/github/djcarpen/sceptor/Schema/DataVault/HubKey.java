@@ -12,24 +12,21 @@ public class HubKey {
     RuleFormatter ruleFormatter = new RuleFormatter();
     private List<HiveTable.HiveColumn> businessKeys;
 
-    public String getHubKey(DataDictionary.Table table) {
+    public String getHubKey(HubSchema.HubTable table, String alias) {
         StringJoiner hubKeyJoiner = new StringJoiner(", ");
         businessKeys = new ArrayList<>();
-        for (DataDictionary.Table.Column c : table.getColumns()) {
+        for (DataDictionary.Table.Column c : table.getSourceTable().getColumns()) {
             if (c.getIsBusinessKey()) {
                 HiveTable.HiveColumn businessKey = new HiveTable.HiveColumn();
-                if (c.getColumnName().equals("id")) {
-                    businessKey.setColumnName(table.getTableName() + "_" + c.getColumnName());
-                } else {
-                    businessKey.setColumnName(c.getColumnName());
-                }
+                businessKey.setColumnName(c.getColumnName());
                 businessKey.setDataType(c.getDataType());
                 businessKeys.add(businessKey);
             }
         }
         for (HubSchema.HubTable.HiveColumn c : businessKeys) {
-            hubKeyJoiner.add(ruleFormatter.getFormattedColumnDefinition(c.getColumnName(), c.getDataType()));
+            hubKeyJoiner.add(ruleFormatter.getFormattedColumnDefinition(alias + "." + c.getColumnName(), c.getDataType()));
         }
         return hubKeyJoiner.toString();
     }
+
 }

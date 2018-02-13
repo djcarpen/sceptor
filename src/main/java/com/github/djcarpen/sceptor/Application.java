@@ -89,6 +89,8 @@ public class Application {
         Map<String, String> rdwDMLMap = rdwDML.getDMLs(rdwSchemas);
         for (Map.Entry<String, String> entry : rdwDMLMap.entrySet()) {
 
+            if (entry.getKey().equals("load_L_orders.hql"))
+                System.out.println("***** RDW DML: " + entry.getKey() + " *****\n\n" + entry.getValue());
             //System.out.println("***** RDW DML: " + entry.getKey() + " *****\n\n" + entry.getValue());
         }
 

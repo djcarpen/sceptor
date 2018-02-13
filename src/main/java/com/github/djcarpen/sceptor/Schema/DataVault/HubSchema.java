@@ -25,10 +25,11 @@ public class HubSchema implements Schema {
             hubTable.setDatabaseName(t.getDatabaseName());
             hubTable.setTableName("H_" + t.getTableName());
             hubTable.setHubKey(t);
-            hubTable.setHubKeyDefinition(t);
+            //hubTable.setHubKeyDefinition(t);
             hubTable.setLoadDate();
             hubTable.setBusinessKeys(t);
             hubTable.setColumns();
+            hubTable.setSourceTable(t);
             hubTables.add(hubTable);
         }
     }
@@ -40,15 +41,26 @@ public class HubSchema implements Schema {
         private List<HiveColumn> businessKeys;
         private List<HiveColumn> hubColumns;
         private String hubKeyDefinition;
+        private DataDictionary.Table sourceTable;
+
 
         public String getHubKeyDefinition() {
             return hubKeyDefinition;
         }
 
-        public void setHubKeyDefinition(Table table) {
-            HubKey hubKey = new HubKey();
-            hubKeyDefinition = hubKey.getHubKey(table);
+
+        public Table getSourceTable() {
+            return sourceTable;
         }
+
+        public void setSourceTable(Table sourceTable) {
+            this.sourceTable = sourceTable;
+        }
+
+//        public void setHubKeyDefinition(Table table) {
+//            HubKey hubKey = new HubKey();
+//            hubKeyDefinition = hubKey.getHubKey(table);
+//        }
 
         @Override
         public List<HiveColumn> getColumns() {

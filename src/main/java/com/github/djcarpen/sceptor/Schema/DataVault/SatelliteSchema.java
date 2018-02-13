@@ -28,7 +28,7 @@ public class SatelliteSchema implements Schema {
             satelliteTable.setDatabaseName(t.getDatabaseName());
             satelliteTable.setTableName("S_" + t.getTableName());
             satelliteTable.setHubKey(t);
-            satelliteTable.setHubKeyDefinition(t);
+            //satelliteTable.setHubKeyDefinition(t);
             satelliteTable.setLoadDate();
             satelliteTable.setColumns(t);
             satelliteTable.setDatabaseName(t.getDatabaseName());
@@ -52,10 +52,10 @@ public class SatelliteSchema implements Schema {
             return hubKeyDefinition;
         }
 
-        public void setHubKeyDefinition(Table table) {
-            HubKey hubKey = new HubKey();
-            hubKeyDefinition = hubKey.getHubKey(table);
-        }
+//        public void setHubKeyDefinition(Table table) {
+//            HubKey hubKey = new HubKey();
+//            hubKeyDefinition = hubKey.getHubKey(table);
+//        }
 
         @Override
         public List<HiveColumn> getColumns() {

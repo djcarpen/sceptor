@@ -1,5 +1,6 @@
 package com.github.djcarpen.sceptor.DML;
 
+import com.github.djcarpen.sceptor.Schema.DataVault.HubKey;
 import com.github.djcarpen.sceptor.Schema.DataVault.HubSchema;
 import com.github.djcarpen.sceptor.Schema.DataVault.LinkSchema;
 import com.github.djcarpen.sceptor.Schema.DataVault.SatelliteSchema;
@@ -17,6 +18,8 @@ public class RDWDML {
     private static final Date dateobj = new Date();
     private static final String load_dt = df.format(dateobj);
 
+    private HubSchema hubSchema = new HubSchema();
+
     private Map<String, String> dmlMap;
     private Map<String, String> dmlMapHubs;
     private Map<String, String> dmlMapSatellites;
@@ -25,8 +28,13 @@ public class RDWDML {
     private Map<HubSchema.HubTable, String> hubKeyMap;
 
     public Map getDMLs(List<Schema> schemas) {
-        hubKeyMap = new LinkedHashMap<>();
-        hubKeyMap = getHubKeyMap(schemas.get(0));
+
+        hubSchema = ((HubSchema) schemas.get(0));
+
+
+
+
+
 
         dmlMap = new LinkedHashMap<>();
         dmlMap.putAll(getHubDMLS(schemas.get(0)));
@@ -39,6 +47,8 @@ public class RDWDML {
 
 
     public Map getHubDMLS(Schema schema) {
+
+
         dmlMapHubs = new LinkedHashMap<>();
         for (HubSchema.HubTable h : ((HubSchema) schema).getTables()) {
             StringBuilder sb = new StringBuilder();
@@ -100,17 +110,39 @@ public class RDWDML {
 
     public Map getLinkDMLs(Schema schema) {
 
+        hubKeyMap = new LinkedHashMap<>();
+        for (HubSchema.HubTable h : hubSchema.getTables()) {
+            HubKey hubKey = new HubKey();
+            hubKeyMap.put(h, hubKey.getHubKey(h, "justin"));
+        }
 
         dmlMapLinks = new LinkedHashMap<>();
         for (LinkSchema.LinkTable l : ((LinkSchema) schema).getTables()) {
+
             if (l.getColumns().size() > 2) {
 
-                System.out.println("\n\nLinkTable: " + l.getTableName());
 
                 StringBuilder sb = new StringBuilder();
                 StringJoiner columnJoiner = new StringJoiner(", \n");
                 RuleFormatter ruleFormatter = new RuleFormatter();
                 StringJoiner linkKeyJoiner = new StringJoiner(", ");
+                StringJoiner tableJoiner = new StringJoiner("\n");
+//                for (Map.Entry<HubSchema.HubTable,String> entry : hubKeyMap.entrySet())
+//                {
+//                    if (entry.getKey().getTableName().equals(l.getSourceTableName())) {
+//                        linkKeyJoiner.add(entry.getValue());
+//                        columnJoiner.add("\t" + entry.getValue() + " hk_" + entry.getKey().getTableName());
+//                    }
+//                }
+
+                for (HubSchema.HubTable h : hubSchema.getTables()) {
+                    if (h.getSourceTableName().equals(l.getSourceTableName())) {
+                        HubKey hubKey = new HubKey();
+                        String hubKeyDefinition = hubKey.getHubKey(h, h.getSourceTable().getTableName());
+                        linkKeyJoiner.add(hubKeyDefinition);
+                        columnJoiner.add("\t" + hubKeyDefinition + " hk_" + h.getSourceTable().getTableName());
+                    }
+                }
                 for (LinkSchema.LinkTable.HiveColumn c : l.getColumns()) {
 
                     if (!c.equals(l.getLinkKey()) && !c.equals(l.getLoadDate())) {
@@ -118,12 +150,15 @@ public class RDWDML {
                             if (entry.getKey().getTableName().equals(c.getForeignKeyTable())) {
 
 
-                                System.out.println("entry.getKey().getTableName():  " + entry.getKey().getTableName());
-                                System.out.println("entry.getValue():  " + entry.getValue());
+                                //System.out.println("entry.getKey().getTableName():  " + entry.getKey().getTableName());
+                                //System.out.println("entry.getValue():  " + entry.getValue());
 
 
                                 linkKeyJoiner.add(entry.getValue());
                                 columnJoiner.add("\t" + entry.getValue() + " " + c.getColumnName());
+                                tableJoiner.add("LEFT JOIN " + entry.getKey().getTableName() + " " + entry.getKey().getTableName() + "_" + c.getColumnName() + " on " + l.getSourceTableName() + ".");
+
+
                             }
 
                         }
@@ -134,7 +169,8 @@ public class RDWDML {
                 sb.append("SELECT DISTINCT\n");
                 sb.append("\tupper(concat_ws(\"").append(hubKeyDelimiter).append("\",").append(linkKeyJoiner).append(" ").append(l.getLinkKey().getColumnName()).append("\n");
                 sb.append(columnJoiner.toString() + "\n");
-                sb.append("FROM ").append(l.getTableName()).append("\n");
+                sb.append("FROM ").append(l.getSourceTableName()).append("\n");
+                sb.append(tableJoiner.toString()).append("\n");
                 sb.append("AND edl_ingest_time >= ${hivevar:edlIngestTime}\n");
                 sb.append("AND edl_ingest_channel = ${hivevar:edlIngestChannel};\n");
 
@@ -144,13 +180,13 @@ public class RDWDML {
         return dmlMapLinks;
     }
 
-    private Map getHubKeyMap(Schema schema) {
-        Map<HubSchema.HubTable, String> myhubKeyMap = new LinkedHashMap<>();
-
-        for (HubSchema.HubTable h : ((HubSchema) schema).getTables()) {
-            myhubKeyMap.put(h, h.getHubKeyDefinition());
-
-        }
-        return myhubKeyMap;
-    }
+//    private Map getHubKeyMap(Schema schema) {
+//        Map<HubSchema.HubTable, String> myhubKeyMap = new LinkedHashMap<>();
+//
+//        for (HubSchema.HubTable h : ((HubSchema) schema).getTables()) {
+//            myhubKeyMap.put(h, h.getHubKeyDefinition());
+//
+//        }
+//        return myhubKeyMap;
+//    }
 }
