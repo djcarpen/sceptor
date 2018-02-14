@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba20c36-8a80-41db-91c9-04a3911ab317" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Application.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Application.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWDML.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWDML.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubKey.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubKey.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubSchema.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubSchema.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/SatelliteSchema.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/SatelliteSchema.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubKey.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/LinkSchema.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/LinkSchema.java" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/github/djcarpen/sceptor/Application.class" afterPath="$PROJECT_DIR$/target/classes/com/github/djcarpen/sceptor/Application.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,11 +22,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RDWDML.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RDWDML.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWDML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="177" column="65" lean-forward="false" selection-start-line="177" selection-start-column="65" selection-end-line="177" selection-end-column="65" />
+            <state relative-caret-position="-794">
+              <caret line="19" column="61" lean-forward="false" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StagingDML.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/StagingDML.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -57,7 +65,7 @@
       <file leaf-file-name="HubSchema.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubSchema.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="15">
               <caret line="27" column="14" lean-forward="false" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
               <folding>
                 <element signature="e#1656#1657#0" expanded="true" />
@@ -101,12 +109,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HubKey.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubKey.java">
+      <file leaf-file-name="TransientDML.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/TransientDML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="26" column="84" lean-forward="false" selection-start-line="26" selection-start-column="84" selection-end-line="26" selection-end-column="84" />
+            <state relative-caret-position="573">
+              <caret line="54" column="22" lean-forward="false" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="28" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LinkSchema.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/LinkSchema.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+              <folding>
+                <element signature="e#6094#6095#0" expanded="true" />
+                <element signature="e#6133#6134#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -197,13 +218,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/BDWDML.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/HiveTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RawSchema.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/LinkSchema.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/RuleFormatter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubSchema.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/SatelliteSchema.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubKey.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubSchema.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWDML.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/LinkSchema.java" />
       </list>
     </option>
   </component>
@@ -503,7 +524,7 @@
       <workItem from="1516747579298" duration="7000" />
       <workItem from="1516763915246" duration="382000" />
       <workItem from="1516768266237" duration="613000" />
-      <workItem from="1518534476598" duration="14175000" />
+      <workItem from="1518534476598" duration="17794000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1514825662377</created>
@@ -568,11 +589,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518538540485</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Refactoring">
+      <created>1518562624831</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1518562624831</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243388000" />
+    <option name="totallyTimeSpent" value="247007000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -584,7 +612,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -595,14 +623,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45646766" sideWeight="0.5114449" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38414633" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27363184" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3432836" sideWeight="0.48855507" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4067164" sideWeight="0.49713877" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36261982" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21030043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -858,13 +886,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/StagingDML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="50" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/RDWDDL.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -888,26 +909,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/TransientDML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="54" column="22" lean-forward="false" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="125" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/FileWriter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="20" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/LinkSchema.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1112">
-          <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -954,9 +959,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubSchema.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="15">
           <caret line="27" column="14" lean-forward="false" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
           <folding>
             <element signature="e#1656#1657#0" expanded="true" />
@@ -967,19 +980,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubKey.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWDML.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="26" column="84" lean-forward="false" selection-start-line="26" selection-start-column="84" selection-end-line="26" selection-end-column="84" />
+        <state relative-caret-position="-794">
+          <caret line="19" column="61" lean-forward="false" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWDML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/StagingDML.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="177" column="65" lean-forward="false" selection-start-line="177" selection-start-column="65" selection-end-line="177" selection-end-column="65" />
+        <state relative-caret-position="300">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/TransientDML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="54" column="22" lean-forward="false" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/LinkSchema.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+          <folding>
+            <element signature="e#6094#6095#0" expanded="true" />
+            <element signature="e#6133#6134#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,9 +1,10 @@
 package com.github.djcarpen.sceptor.DML;
 
-import com.github.djcarpen.sceptor.Schema.DataVault.HubKey;
+import com.github.djcarpen.sceptor.Schema.DataDictionary;
 import com.github.djcarpen.sceptor.Schema.DataVault.HubSchema;
 import com.github.djcarpen.sceptor.Schema.DataVault.LinkSchema;
 import com.github.djcarpen.sceptor.Schema.DataVault.SatelliteSchema;
+import com.github.djcarpen.sceptor.Schema.HiveTable;
 import com.github.djcarpen.sceptor.Schema.Schema;
 import com.github.djcarpen.sceptor.Utils.RuleFormatter;
 
@@ -25,7 +26,6 @@ public class RDWDML {
     private Map<String, String> dmlMapSatellites;
     private Map<String, String> dmlMapLinks;
 
-    private Map<HubSchema.HubTable, String> hubKeyMap;
 
     public Map getDMLs(List<Schema> schemas) {
 
@@ -110,12 +110,6 @@ public class RDWDML {
 
     public Map getLinkDMLs(Schema schema) {
 
-        hubKeyMap = new LinkedHashMap<>();
-        for (HubSchema.HubTable h : hubSchema.getTables()) {
-            HubKey hubKey = new HubKey();
-            hubKeyMap.put(h, hubKey.getHubKey(h, "justin"));
-        }
-
         dmlMapLinks = new LinkedHashMap<>();
         for (LinkSchema.LinkTable l : ((LinkSchema) schema).getTables()) {
 
@@ -127,38 +121,17 @@ public class RDWDML {
                 RuleFormatter ruleFormatter = new RuleFormatter();
                 StringJoiner linkKeyJoiner = new StringJoiner(", ");
                 StringJoiner tableJoiner = new StringJoiner("\n");
-//                for (Map.Entry<HubSchema.HubTable,String> entry : hubKeyMap.entrySet())
-//                {
-//                    if (entry.getKey().getTableName().equals(l.getSourceTableName())) {
-//                        linkKeyJoiner.add(entry.getValue());
-//                        columnJoiner.add("\t" + entry.getValue() + " hk_" + entry.getKey().getTableName());
-//                    }
-//                }
 
-                for (HubSchema.HubTable h : hubSchema.getTables()) {
-                    if (h.getSourceTableName().equals(l.getSourceTableName())) {
-                        HubKey hubKey = new HubKey();
-                        String hubKeyDefinition = hubKey.getHubKey(h, h.getSourceTable().getTableName());
-                        linkKeyJoiner.add(hubKeyDefinition);
-                        columnJoiner.add("\t" + hubKeyDefinition + " hk_" + h.getSourceTable().getTableName());
-                    }
-                }
                 for (LinkSchema.LinkTable.HiveColumn c : l.getColumns()) {
 
                     if (!c.equals(l.getLinkKey()) && !c.equals(l.getLoadDate())) {
-                        for (Map.Entry<HubSchema.HubTable, String> entry : hubKeyMap.entrySet()) {
-                            if (entry.getKey().getTableName().equals(c.getForeignKeyTable())) {
+                        for (HubSchema.HubTable h : hubSchema.getTables()) {
+                            if (h.getTableName().equals(c.getForeignKeyTable()) || c.equals(h.getHubKey())) {
+                                String hubKeyDefinition = getHubKey(h, h.getSourceTable().getTableName() + "_" + c.getColumnName());
 
-
-                                //System.out.println("entry.getKey().getTableName():  " + entry.getKey().getTableName());
-                                //System.out.println("entry.getValue():  " + entry.getValue());
-
-
-                                linkKeyJoiner.add(entry.getValue());
-                                columnJoiner.add("\t" + entry.getValue() + " " + c.getColumnName());
-                                tableJoiner.add("LEFT JOIN " + entry.getKey().getTableName() + " " + entry.getKey().getTableName() + "_" + c.getColumnName() + " on " + l.getSourceTableName() + ".");
-
-
+                                linkKeyJoiner.add(hubKeyDefinition);
+                                columnJoiner.add("\t" + hubKeyDefinition + " " + h.getHubKey().getColumnName());
+                                tableJoiner.add("LEFT JOIN " + h.getSourceTable().getTableName() + " " + h.getSourceTable().getTableName() + "_" + c.getColumnName());
                             }
 
                         }
@@ -180,13 +153,21 @@ public class RDWDML {
         return dmlMapLinks;
     }
 
-//    private Map getHubKeyMap(Schema schema) {
-//        Map<HubSchema.HubTable, String> myhubKeyMap = new LinkedHashMap<>();
-//
-//        for (HubSchema.HubTable h : ((HubSchema) schema).getTables()) {
-//            myhubKeyMap.put(h, h.getHubKeyDefinition());
-//
-//        }
-//        return myhubKeyMap;
-//    }
+    private String getHubKey(HubSchema.HubTable table, String alias) {
+        RuleFormatter ruleFormatter = new RuleFormatter();
+        StringJoiner hubKeyJoiner = new StringJoiner(", ");
+        List<HiveTable.HiveColumn> businessKeys = new ArrayList<>();
+        for (DataDictionary.Table.Column c : table.getSourceTable().getColumns()) {
+            if (c.getIsBusinessKey()) {
+                HiveTable.HiveColumn businessKey = new HiveTable.HiveColumn();
+                businessKey.setColumnName(c.getColumnName());
+                businessKey.setDataType(c.getDataType());
+                businessKeys.add(businessKey);
+            }
+        }
+        for (HubSchema.HubTable.HiveColumn c : businessKeys) {
+            hubKeyJoiner.add(ruleFormatter.getFormattedColumnDefinition(alias + "." + c.getColumnName(), c.getDataType()));
+        }
+        return hubKeyJoiner.toString();
+    }
 }

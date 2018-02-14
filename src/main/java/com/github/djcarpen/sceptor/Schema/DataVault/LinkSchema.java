@@ -26,7 +26,7 @@ public class LinkSchema implements Schema {
             linkTable.setLinkKey(t);
             linkTable.setLoadDate();
             linkTable.setColumns(t);
-            linkTable.setDatabaseName(t.getDatabaseName());
+            linkTable.setDatabaseName("rdw_" + t.getDatabaseName());
             linkTable.setTableName("L_" + t.getTableName());
 
             linkTables.add(linkTable);
@@ -41,6 +41,7 @@ public class LinkSchema implements Schema {
         private HiveColumn linkKey;
         private HiveColumn loadDate;
         private List<HiveColumn> linkColumns;
+        
 
         @Override
         public List<HiveColumn> getColumns() {
