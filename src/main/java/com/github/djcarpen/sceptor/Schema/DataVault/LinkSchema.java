@@ -26,7 +26,7 @@ public class LinkSchema implements Schema {
             linkTable.setLinkKey(t);
             linkTable.setLoadDate();
             linkTable.setColumns(t);
-            linkTable.setDatabaseName("rdw_" + t.getDatabaseName());
+            linkTable.setDatabaseName(t.getDatabaseName());
             linkTable.setTableName("L_" + t.getTableName());
 
             linkTables.add(linkTable);
@@ -41,7 +41,7 @@ public class LinkSchema implements Schema {
         private HiveColumn linkKey;
         private HiveColumn loadDate;
         private List<HiveColumn> linkColumns;
-        
+
 
         @Override
         public List<HiveColumn> getColumns() {
@@ -51,6 +51,8 @@ public class LinkSchema implements Schema {
 
         public void setColumns(DataDictionary.Table sourceTable) {
             linkColumns = new ArrayList<>();
+            HiveColumn thisTableHubKey = new HiveColumn("hk_" + sourceTable.getTableName(), "STRING");
+            linkColumns.add(thisTableHubKey);
             for (Column c : sourceTable.getColumns()) {
                 if (!c.getIsBusinessKey() && !c.getIsSurrogateKey() && !c.getForeignKeyColumn().isEmpty()) {
                     if (c.getColumnName().replace("_id", "").equals(c.getForeignKeyColumn())) {

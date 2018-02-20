@@ -28,6 +28,7 @@ public class SatelliteSchema implements Schema {
             satelliteTable.setDatabaseName(t.getDatabaseName());
             satelliteTable.setTableName("S_" + t.getTableName());
             satelliteTable.setHubKey(t);
+            satelliteTable.setSourceTable(t);
             //satelliteTable.setHubKeyDefinition(t);
             satelliteTable.setLoadDate();
             satelliteTable.setColumns(t);
@@ -44,7 +45,15 @@ public class SatelliteSchema implements Schema {
         private List<HiveColumn> satelliteAttributes;
     private List<HiveColumn> satelliteColumns;
         private HiveColumn loadDate;
+        private DataDictionary.Table sourceTable;
 
+        public Table getSourceTable() {
+            return sourceTable;
+        }
+
+        public void setSourceTable(Table sourceTable) {
+            this.sourceTable = sourceTable;
+        }
 
         private String hubKeyDefinition;
 

@@ -3,14 +3,14 @@ package com.github.djcarpen.sceptor.DML;
 import com.github.djcarpen.sceptor.Schema.DataVault.HubSchema;
 import com.github.djcarpen.sceptor.Schema.Schema;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BDWDML {
+    private Properties Props = new Properties();
 
     private static final String hubKeyDelimiter = "-";
     private static final String datePattern = "MM/dd/yyyy HH:mm:ss";
@@ -22,6 +22,14 @@ public class BDWDML {
     private Map<String, String> dmlMapHubs;
     private Map<String, String> dmlMapSatellites;
     private Map<String, String> dmlMapLinks;
+
+    public BDWDML() {
+        try {
+            Props.load(new FileInputStream("Runtime.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public Map getDMLs(List<Schema> schemas) {
 

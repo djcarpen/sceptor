@@ -6,20 +6,28 @@ import com.github.djcarpen.sceptor.Schema.DataVault.SatelliteSchema;
 import com.github.djcarpen.sceptor.Schema.HiveTable;
 import com.github.djcarpen.sceptor.Schema.Schema;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringJoiner;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.*;
 
 public class BDWDDL implements DDL {
+    private Properties Props = new Properties();
 
     private Map<String, String> ddlMap;
     private Map<String, String> ddlMapHubs;
     private Map<String, String> ddlMapSatellites;
     private Map<String, String> ddlMapLinks;
 
+    public BDWDDL() {
+        try {
+            Props.load(new FileInputStream("Runtime.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public Map getDDLs(List<Schema> schemas) {
+
         ddlMap = new LinkedHashMap<>();
         ddlMap.putAll(getHubDDLS(schemas.get(0)));
         ddlMap.putAll(getSatelliteDDLS(schemas.get(1)));
@@ -32,7 +40,7 @@ public class BDWDDL implements DDL {
         ddlMapHubs = new LinkedHashMap<>();
         for (HubSchema.HubTable t : ((HubSchema) schema).getTables()) {
             StringBuilder sb = new StringBuilder();
-            sb.append("CREATE TABLE bdw_").append(t.getDatabaseName()).append(".").append(t.getTableName()).append("(\n");
+            sb.append("CREATE TABLE IF NOT EXISTS ").append(Props.getProperty("bdwDatabaseName")).append(".").append(t.getTableName()).append("(\n");
             StringJoiner columnJoiner = new StringJoiner(",\n");
             for (HiveTable.HiveColumn c : t.getColumns()) {
                 columnJoiner.add("\t" + c.getColumnName() + " " + c.getDataType());
@@ -41,8 +49,9 @@ public class BDWDDL implements DDL {
             sb.append(") \nCLUSTERED BY (");
             sb.append(t.getColumns().get(0).getColumnName());
             sb.append(") INTO 1 BUCKETS\n");
-            sb.append("STORED AS ORC\n");
-            sb.append("TBLPROPERTIES (\"TRANSACTIONAL\"=\"TRUE\");").append("\n\n");
+            sb.append("STORED AS ").append(Props.getProperty("bdwStoredAs")).append("\n");
+            sb.append("LOCATION '").append(Props.getProperty("bdwHdfsPath")).append("'\n");
+            sb.append("TBLPROPERTIES (\"TRANSACTIONAL\"=\"TRUE\");");
             ddlMapHubs.put("create_" + t.getTableName() + ".hql", sb.toString());
         }
         return ddlMapHubs;
@@ -53,7 +62,7 @@ public class BDWDDL implements DDL {
         ddlMapSatellites = new LinkedHashMap<>();
         for (SatelliteSchema.SatelliteTable t : ((SatelliteSchema) schema).getTables()) {
             StringBuilder sb = new StringBuilder();
-            sb.append("CREATE TABLE bdw_").append(t.getDatabaseName()).append(".").append(t.getTableName()).append("(\n");
+            sb.append("CREATE TABLE IF NOT EXISTS ").append(Props.getProperty("bdwDatabaseName")).append(".").append(t.getTableName()).append("(\n");
             StringJoiner columnJoiner = new StringJoiner(",\n");
             for (HiveTable.HiveColumn c : t.getColumns()) {
                 columnJoiner.add("\t" + c.getColumnName() + " " + c.getDataType());
@@ -62,8 +71,9 @@ public class BDWDDL implements DDL {
             sb.append(") \nCLUSTERED BY (");
             sb.append(t.getColumns().get(0).getColumnName());
             sb.append(") INTO 1 BUCKETS\n");
-            sb.append("STORED AS ORC\n");
-            sb.append("TBLPROPERTIES (\"TRANSACTIONAL\"=\"TRUE\");").append("\n\n");
+            sb.append("STORED AS ").append(Props.getProperty("bdwStoredAs")).append("\n");
+            sb.append("LOCATION '").append(Props.getProperty("bdwHdfsPath")).append("'\n");
+            sb.append("TBLPROPERTIES (\"TRANSACTIONAL\"=\"TRUE\");");
             ddlMapSatellites.put("create_" + t.getTableName() + ".hql", sb.toString());
         }
         return ddlMapSatellites;
@@ -75,7 +85,7 @@ public class BDWDDL implements DDL {
             if (t.getColumns().size() > 2) {
 
                 StringBuilder sb = new StringBuilder();
-                sb.append("CREATE TABLE bdw_").append(t.getDatabaseName()).append(".").append(t.getTableName()).append("(\n");
+                sb.append("CREATE TABLE IF NOT EXISTS ").append(Props.getProperty("bdwDatabaseName")).append(".").append(t.getTableName()).append("(\n");
                 StringJoiner columnJoiner = new StringJoiner(",\n");
                 for (HiveTable.HiveColumn c : t.getColumns()) {
                     columnJoiner.add("\t" + c.getColumnName() + " " + c.getDataType());
@@ -84,7 +94,8 @@ public class BDWDDL implements DDL {
                 sb.append(") \nCLUSTERED BY (");
                 sb.append(t.getColumns().get(0).getColumnName());
                 sb.append(") INTO 1 BUCKETS\n");
-                sb.append("STORED AS ORC\n");
+                sb.append("STORED AS ").append(Props.getProperty("bdwStoredAs")).append("\n");
+                sb.append("LOCATION '").append(Props.getProperty("bdwHdfsPath")).append("'\n");
                 sb.append("TBLPROPERTIES (\"TRANSACTIONAL\"=\"TRUE\");");
                 ddlMapLinks.put("create_" + t.getTableName() + ".hql", sb.toString());
 

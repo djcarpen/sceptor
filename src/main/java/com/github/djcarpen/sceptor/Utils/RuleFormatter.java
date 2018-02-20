@@ -7,7 +7,7 @@ public class RuleFormatter {
         if (dataType.equals("STRING")) {
             formattedColumnDefinition = "upper(nvl(regexp_replace(" + columnName + ",'\"',''),''))";
         } else {
-            formattedColumnDefinition = "nvl(cast(" + columnName + ") as STRING),'')";
+            formattedColumnDefinition = "nvl(cast(" + columnName + " as STRING),'')";
         }
         return formattedColumnDefinition;
     }

@@ -4,18 +4,28 @@ import com.github.djcarpen.sceptor.Schema.HiveTable;
 import com.github.djcarpen.sceptor.Schema.RawSchema;
 import com.github.djcarpen.sceptor.Schema.Schema;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringJoiner;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.*;
 
 public class TransientDML {
 
+    private static final String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
 
     private Map<String, String> dmlMap;
     private Map<String, String> dmlMapTransient;
+    private Properties Props = new Properties();
+
+    public TransientDML() {
+        try {
+            Props.load(new FileInputStream("Runtime.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public Map getDMLs(List<Schema> schemas) {
+
         dmlMap = new LinkedHashMap<>();
         dmlMap.putAll(getTransientDML(schemas.get(0)));
         return dmlMap;
@@ -26,7 +36,7 @@ public class TransientDML {
         for (HiveTable t : ((RawSchema) schema).getTables()) {
             StringBuilder sb = new StringBuilder();
             sb.append("INSERT INTO TABLE ");
-            sb.append(t.getDatabaseName());
+            sb.append(Props.getProperty("transientDatabaseName"));
             sb.append(".");
             sb.append(t.getTableName());
             sb.append("\npartition (");
@@ -48,8 +58,8 @@ public class TransientDML {
             }
             sb.append(partitionColumnsJoiner.toString());
             sb.append(")\n");
-            sb.append("FROM stg_");
-            sb.append(t.getDatabaseName());
+            sb.append("FROM ");
+            sb.append(Props.getProperty("stagingDatabaseName"));
             sb.append(".");
             sb.append(t.getTableName());
             sb.append("\n");
