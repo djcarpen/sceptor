@@ -5,8 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ba20c36-8a80-41db-91c9-04a3911ab317" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/PropertyHandler.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/StagingSchema.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/TransientSchema.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/SchemaMapper.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Application.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Application.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/BDWDDL.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/DDL.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/RDWDDL.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/StagingDDL.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/TransientDDL.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/BDWDML.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/DML.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWDML.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/StagingDML.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/TransientDML.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataDictionary.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DataDictionary.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubSchema.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RDW/HubSchema.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/LinkSchema.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RDW/LinkSchema.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/SatelliteSchema.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RDW/SatelliteSchema.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/HiveTable.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/HiveTable.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RawSchema.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/Schema.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/Schema.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/HiveScriptGenerator.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/JsonDeserializer.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/JsonDeserializer.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/RuleFormatter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Zone.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/github/djcarpen/sceptor/Application.class" afterPath="$PROJECT_DIR$/target/classes/com/github/djcarpen/sceptor/Application.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/djcarpen/sceptor/Schema/HiveTable$HiveColumn.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/djcarpen/sceptor/Schema/HiveTable$OrderByHiveColumnName.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/djcarpen/sceptor/Schema/HiveTable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/djcarpen/sceptor/Schema/RawSchema.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/djcarpen/sceptor/Schema/Schema.class" afterPath="$PROJECT_DIR$/target/classes/com/github/djcarpen/sceptor/Schema/Schema.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/djcarpen/sceptor/Utils/JsonDeserializer.class" afterPath="$PROJECT_DIR$/target/classes/com/github/djcarpen/sceptor/Utils/JsonDeserializer.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/djcarpen/sceptor/Zone.class" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,107 +54,126 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RDWDML.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWDML.java">
+      <file leaf-file-name="DML.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="188" column="35" lean-forward="false" selection-start-line="188" selection-start-column="35" selection-end-line="188" selection-end-column="35" />
+            <state relative-caret-position="3096">
+              <caret line="228" column="103" lean-forward="true" selection-start-line="228" selection-start-column="103" selection-end-line="228" selection-end-column="103" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LinkSchema.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/LinkSchema.java">
+      <file leaf-file-name="DDL.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="54" column="45" lean-forward="false" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
+            <state relative-caret-position="225">
+              <caret line="51" column="91" lean-forward="false" selection-start-line="51" selection-start-column="91" selection-end-line="51" selection-end-column="91" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransientSchema.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/TransientSchema.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="39" column="60" lean-forward="false" selection-start-line="39" selection-start-column="60" selection-end-line="39" selection-end-column="60" />
               <folding>
-                <element signature="e#5919#5920#0" expanded="true" />
-                <element signature="e#5957#5958#0" expanded="true" />
+                <element signature="e#2925#2926#0" expanded="true" />
+                <element signature="e#2963#2964#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HubSchema.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubSchema.java">
+      <file leaf-file-name="LinkSchema.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RDW/LinkSchema.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-692">
-              <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+            <state relative-caret-position="225">
+              <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+              <folding>
+                <element signature="e#2379#2380#0" expanded="true" />
+                <element signature="e#2421#2422#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SatelliteSchema.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RDW/SatelliteSchema.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BDWDML.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/BDWDML.java">
+      <file leaf-file-name="SchemaMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/SchemaMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-              <folding />
+            <state relative-caret-position="690">
+              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding>
+                <element signature="e#1383#1384#0" expanded="true" />
+                <element signature="e#1416#1417#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StagingDDL.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/StagingDDL.java">
+      <file leaf-file-name="HiveTable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/HiveTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-187">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="22" selection-end-column="9" />
-              <folding />
+            <state relative-caret-position="315">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <element signature="e#681#682#0" expanded="true" />
+                <element signature="e#1800#1801#0" expanded="true" />
+                <element signature="e#1835#1836#0" expanded="true" />
+                <element signature="e#1891#1892#0" expanded="true" />
+                <element signature="e#1939#1940#0" expanded="true" />
+                <element signature="e#1992#1993#0" expanded="true" />
+                <element signature="e#2031#2032#0" expanded="true" />
+                <element signature="e#2097#2098#0" expanded="true" />
+                <element signature="e#2150#2151#0" expanded="true" />
+                <element signature="e#2610#2611#0" expanded="true" />
+                <element signature="e#2645#2646#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="41" column="29" lean-forward="false" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+            <state relative-caret-position="210">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StagingSchema.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/StagingSchema.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="32" column="21" lean-forward="false" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2413#2414#0" expanded="true" />
+                <element signature="e#2449#2450#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RDWDDL.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/RDWDDL.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-80">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransientDML.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/TransientDML.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StagingDML.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/StagingDML.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="27" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BDWDDL.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/BDWDDL.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="25" selection-end-column="9" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -145,6 +199,11 @@
       <find>hub</find>
       <find>stg</find>
       <find>index</find>
+      <find>Props.getProperty(</find>
+      <find>println</find>
+      <find>split</find>
+      <find>edl_load_t</find>
+      <find>loadD</find>
     </findStrings>
     <replaceStrings>
       <replace>SourceSchema.HiveTable.HiveColumn</replace>
@@ -153,6 +212,7 @@
       <replace>Link</replace>
       <replace>HiveColumn</replace>
       <replace>raw</replace>
+      <replace>PropertyHandler.getInstance().getValue(</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -166,26 +226,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RawDataWarehouseSchema.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/SourceSchema.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/RawDataWarehouseDDL.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/DDLWriter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/BusinessDataWarehouseDDL.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/DDLGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataDictionary.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/FileWriter.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/DDLGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/TableType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/Satellite.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/Link.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/JsonDeserializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/DataVaultSchema.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/Hub.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/RawDataWarehouseSchema.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DML.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/Schema.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubDML.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/HiveScriptGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RawDDL.java" />
@@ -195,28 +235,48 @@
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWtoBDWHubDML.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWSatelliteDML.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/RawDDL.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/DDL.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/HiveTable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RawSchema.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubKey.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubSchema.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/SatelliteSchema.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/RuleFormatter.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/rdw.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/bdw.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/staging.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/transient.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/BDWDML.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/BDWDDL.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/SatelliteSchema.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Runtime.properties" />
+        <option value="$PROJECT_DIR$/Runtime.properties" />
+        <option value="$PROJECT_DIR$/job.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubSchema.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/LinkSchema.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DataDictionary.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/PropertyHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/StagingDDL.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/TransientDDL.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/RDWDDL.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/BDWDDL.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/DDLBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/DDL.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RDWSchema.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWDML.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/Schema.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/SchemaMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RawSchema.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/TransientDML.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/StagingDML.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/BDWDML.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/HiveTable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/DML.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RDW/HubSchema.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RDW/SatelliteSchema.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RDW/LinkSchema.java" />
+        <option value="$PROJECT_DIR$/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/TransientSchema.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/StagingSchema.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWDML.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/LinkSchema.java" />
       </list>
     </option>
   </component>
@@ -227,8 +287,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -248,9 +308,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -292,24 +352,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="sceptor" type="462c0819:PsiDirectoryNode" />
-              <item name="DDL" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sceptor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sceptor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sceptor" type="462c0819:PsiDirectoryNode" />
-              <item name="DML" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sceptor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sceptor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sceptor" type="462c0819:PsiDirectoryNode" />
               <item name="Schema" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -320,7 +362,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="sceptor" type="462c0819:PsiDirectoryNode" />
               <item name="Schema" type="462c0819:PsiDirectoryNode" />
-              <item name="DataVault" type="462c0819:PsiDirectoryNode" />
+              <item name="RDW" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sceptor" type="b2602c69:ProjectViewProjectNode" />
@@ -333,6 +375,12 @@
             </path>
             <path>
               <item name="sceptor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sceptor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sceptor" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -342,7 +390,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -355,17 +403,19 @@
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.github.djcarpen.sceptor.Schema" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor" />
+      <recent name="$PROJECT_DIR$/src/main/resources/out/dml" />
+      <recent name="$PROJECT_DIR$/src/main/resources/out/ddl" />
       <recent name="$PROJECT_DIR$/src/main/resources/out/ddl/stg" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/out/dml" />
-      <recent name="$PROJECT_DIR$/src/main/resources/out/ddl" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources/out/ddl/stg" />
-      <recent name="$PROJECT_DIR$/src/main/resources/json" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -516,7 +566,16 @@
       <workItem from="1516747579298" duration="7000" />
       <workItem from="1516763915246" duration="382000" />
       <workItem from="1516768266237" duration="613000" />
-      <workItem from="1518534476598" duration="49816000" />
+      <workItem from="1518534476598" duration="58925000" />
+      <workItem from="1519155686593" duration="153000" />
+      <workItem from="1519155857097" duration="5749000" />
+      <workItem from="1519222281962" duration="10943000" />
+      <workItem from="1519315719578" duration="45781000" />
+      <workItem from="1519792838737" duration="313000" />
+      <workItem from="1519793168898" duration="63000" />
+      <workItem from="1519793572094" duration="28378000" />
+      <workItem from="1520004128833" duration="4032000" />
+      <workItem from="1520015104205" duration="3984000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1514825662377</created>
@@ -602,11 +661,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519093623518</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Refactoring">
+      <created>1519093637344</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1519093637344</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="279029000" />
+    <option name="totallyTimeSpent" value="387534000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -618,31 +684,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32587063" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32089552" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45646766" sideWeight="0.5114449" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23373984" sideWeight="0.5079872" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28606966" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" x="0" y="298" width="1440" height="558" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3432836" sideWeight="0.48855507" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3420398" sideWeight="0.48855507" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3871951" sideWeight="0.49201277" order="12" side_tool="false" content_ui="tabs" x="0" y="509" width="1440" height="347" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4067164" sideWeight="0.49713877" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21030043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2160229" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24920128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17288557" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39427862" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -650,13 +715,14 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24253732" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45646766" sideWeight="0.5114449" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23373984" sideWeight="0.5079872" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -664,27 +730,37 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24920128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39800996" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39430895" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32587063" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32317072" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27363184" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3432836" sideWeight="0.48855507" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3420398" sideWeight="0.48855507" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" show_stripe_button="true" weight="0.25813007" sideWeight="0.49201277" order="12" side_tool="false" content_ui="tabs" x="1915" y="22" width="1920" height="1080" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4067164" sideWeight="0.49713877" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21030043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17838125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26727644" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -706,22 +782,16 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Application.java</url>
-          <line>119</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/SchemaMapper.java</url>
+          <line>61</line>
           <properties />
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Application.java</url>
-          <line>120</line>
-          <properties />
-          <option name="timeStamp" value="78" />
+          <option name="timeStamp" value="107" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="82" />
+      <option name="time" value="121" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -730,345 +800,205 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/DDLWriter.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/BusinessDataWarehouseDDL.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/SatelliteDDL.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/RawDDL.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.8.10/jackson-databind-2.8.10-sources.jar!/com/fasterxml/jackson/databind/deser/BeanDeserializer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWtoBDWLinkDML.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWSatelliteDML.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWtoBDWSatelliteDML.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/FileWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="275" column="0" lean-forward="false" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="20" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/com.github.djcarpen.sceptor.Application">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.github.djcarpen.sceptor.Application</OriginalElement>
-          <nodes>
-            <node x="" y="">com.github.djcarpen.sceptor.Application</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="59.0" y="15.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Inner Classes</Category>
-            <Category>Constructors</Category>
-            <Category>Properties</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubKey.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/rdw.properties" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/bdw.properties" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/transient.properties" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/DMLGenerator.java" />
-    <entry file="uml://JAVA/com.github.djcarpen.sceptor.Schema.DataVault.Hub">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.github.djcarpen.sceptor.Schema.DataVault.Hub</OriginalElement>
-          <nodes>
-            <node x="" y="">com.github.djcarpen.sceptor.Schema.DataVault.Hub</node>
-            <node x="" y="">com.github.djcarpen.sceptor.Schema.DataVault.DataVaultSchema</node>
-            <node x="" y="">com.github.djcarpen.sceptor.Schema.Schema</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="78.0" y="94.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/EntityType.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/staging.properties" />
+    <entry file="file://$PROJECT_DIR$/target/classes/transient.properties" />
+    <entry file="file://$PROJECT_DIR$/target/classes/rdw.properties" />
+    <entry file="file://$PROJECT_DIR$/target/classes/bdw.properties" />
+    <entry file="file://$PROJECT_DIR$/MyProp.properties" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Zone.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/HiveScriptGenerator.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/BDWDML.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/BDWDDL.java" />
+    <entry file="file://$PROJECT_DIR$/job.properties" />
+    <entry file="file://$PROJECT_DIR$/job.properties" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/RDWDDL.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/TransientDDL.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/test.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/DDLBuilder.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/JsonDeserializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="2052" column="0" lean-forward="false" selection-start-line="2052" selection-start-column="0" selection-end-line="2052" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/RawDataWarehouseSchema.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/DataVaultSchema.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/DML.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/StagingDDL.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RDWSchema.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/RuleFormatter.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/util/function/BiConsumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="52" column="9" lean-forward="false" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12330">
+          <caret line="872" column="0" lean-forward="false" selection-start-line="872" selection-start-column="0" selection-end-line="872" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RawSchema.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/StagingDML.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWDML.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/PropertyHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="e#756#757#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/TransientDML.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DataDictionary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/Schema.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="135">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/HubDDL.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/LinkDDL.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/SatelliteDDL.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/RawDDL.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/DDL.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RDW/HubSchema.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+        <state relative-caret-position="435">
+          <caret line="39" column="12" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWtoBDWLinkDML.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWSatelliteDML.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWtoBDWSatelliteDML.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/HiveScriptGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/SchemaMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="78" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/FileWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="20" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RawSchema.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="56" lean-forward="false" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/SatelliteSchema.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-265">
-          <caret line="30" column="45" lean-forward="false" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+        <state relative-caret-position="690">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#1786#1787#0" expanded="true" />
-            <element signature="e#1828#1829#0" expanded="true" />
-            <element signature="e#1885#1886#0" expanded="true" />
-            <element signature="e#1939#1940#0" expanded="true" />
+            <element signature="e#1383#1384#0" expanded="true" />
+            <element signature="e#1416#1417#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/HiveTable.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RDW/SatelliteSchema.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+        <state relative-caret-position="270">
+          <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataDictionary.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/RDW/LinkSchema.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="993">
-          <caret line="115" column="39" lean-forward="false" selection-start-line="115" selection-start-column="39" selection-end-line="115" selection-end-column="39" />
+        <state relative-caret-position="225">
+          <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+          <folding>
+            <element signature="e#2379#2380#0" expanded="true" />
+            <element signature="e#2421#2422#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/HiveTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="e#681#682#0" expanded="true" />
+            <element signature="e#1800#1801#0" expanded="true" />
+            <element signature="e#1835#1836#0" expanded="true" />
+            <element signature="e#1891#1892#0" expanded="true" />
+            <element signature="e#1939#1940#0" expanded="true" />
+            <element signature="e#1992#1993#0" expanded="true" />
+            <element signature="e#2031#2032#0" expanded="true" />
+            <element signature="e#2097#2098#0" expanded="true" />
+            <element signature="e#2150#2151#0" expanded="true" />
+            <element signature="e#2610#2611#0" expanded="true" />
+            <element signature="e#2645#2646#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Utils/RuleFormatter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/TransientSchema.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="68" lean-forward="false" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="68" />
+        <state relative-caret-position="256">
+          <caret line="39" column="60" lean-forward="false" selection-start-line="39" selection-start-column="60" selection-end-line="39" selection-end-column="60" />
+          <folding>
+            <element signature="e#2925#2926#0" expanded="true" />
+            <element signature="e#2963#2964#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/StagingSchema.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="32" column="21" lean-forward="false" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+          <folding>
+            <element signature="e#2413#2414#0" expanded="true" />
+            <element signature="e#2449#2450#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3096">
+          <caret line="228" column="103" lean-forward="true" selection-start-line="228" selection-start-column="103" selection-end-line="228" selection-end-column="103" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/rdw.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/bdw.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="54" lean-forward="false" selection-start-line="1" selection-start-column="54" selection-end-line="1" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/transient.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/staging.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/transient.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/rdw.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/bdw.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MyProp.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/TransientDDL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="17" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/BDWDDL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="25" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/StagingDML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="27" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/TransientDML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/BDWDML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/StagingDDL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="22" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DDL/RDWDDL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="48" />
+        <state relative-caret-position="225">
+          <caret line="51" column="91" lean-forward="false" selection-start-line="51" selection-start-column="91" selection-end-line="51" selection-end-column="91" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="41" column="29" lean-forward="false" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/DML/RDWDML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="188" column="35" lean-forward="false" selection-start-line="188" selection-start-column="35" selection-end-line="188" selection-end-column="35" />
+        <state relative-caret-position="210">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/HubSchema.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-692">
-          <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/djcarpen/sceptor/Schema/DataVault/LinkSchema.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="54" column="45" lean-forward="false" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
-          <folding>
-            <element signature="e#5919#5920#0" expanded="true" />
-            <element signature="e#5957#5958#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

@@ -1,40 +1,46 @@
-package com.github.djcarpen.sceptor.Schema.DataVault;
+package com.github.djcarpen.sceptor.Schema.RDW;
 
-import com.github.djcarpen.sceptor.Schema.DataDictionary;
-import com.github.djcarpen.sceptor.Schema.DataDictionary.Table;
-import com.github.djcarpen.sceptor.Schema.DataDictionary.Table.Column;
-import com.github.djcarpen.sceptor.Schema.HiveTable;
+import com.github.djcarpen.sceptor.DataDictionary;
+import com.github.djcarpen.sceptor.DataDictionary.Table;
+import com.github.djcarpen.sceptor.DataDictionary.Table.Column;
+import com.github.djcarpen.sceptor.HiveTable;
+import com.github.djcarpen.sceptor.PropertyHandler;
 import com.github.djcarpen.sceptor.Schema.Schema;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class HubSchema implements Schema {
 
-    private List<HubTable> hubTables = new ArrayList<>();
 
+    private List<HubTable> hubTables = new ArrayList<>();
+    private List<String> rdwPartitionColumns = new ArrayList<>(Arrays.asList(PropertyHandler.getInstance().getValue("rdwPartitionColumns").split(",")));
 
     public List<HubTable> getTables() {
+
         return hubTables;
     }
 
     public void generateTables(DataDictionary dataDictionary) {
-        for (Table t : dataDictionary.getTables()) {
+        for (DataDictionary.Table t : dataDictionary.getTables()) {
             HubTable hubTable = new HubTable();
             hubTable.setSourceTableName(t.getTableName());
-            hubTable.setDatabaseName(t.getDatabaseName());
-            hubTable.setTableName("H_" + t.getTableName());
+            hubTable.setDatabaseName(PropertyHandler.getInstance().getValue("rdwDatabaseNamePrefix") + t.getDatabaseName());
+            hubTable.setTableName(PropertyHandler.getInstance().getValue("rdwHubTablePrefix") + t.getTableName());
             hubTable.setHubKey(t);
-            //hubTable.setHubKeyDefinition(t);
             hubTable.setLoadDate();
             hubTable.setBusinessKeys(t);
             hubTable.setColumns();
             hubTable.setSourceTable(t);
+            hubTable.setStorageFormat(PropertyHandler.getInstance().getValue("rdwStoredAs"));
+            hubTable.setHdfsLocation(PropertyHandler.getInstance().getValue("rdwHdfsBasePath") + "/rdw/" + t.getCommunityName() + "/public/" + t.getDatabaseName() + "/" + PropertyHandler.getInstance().getValue("rdwHubTablePrefix") + t.getTableName());
+            hubTable.setHubKeyDelimiter(PropertyHandler.getInstance().getValue("rdwHubKeyDelimiter"));
+            hubTable.setSourceDatabaseName(PropertyHandler.getInstance().getValue("stagingDatabaseNamePrefix") + t.getCommunityName() + "_" + t.getAppCode() + "_" + t.getModuleCode() + "_" + t.getDatabaseName());
+            hubTable.addPartitionColumn(hubTable.getLoadDate());
             hubTables.add(hubTable);
         }
     }
-
-
     public static class HubTable extends HiveTable {
         private HiveColumn hubKey;
         private HiveColumn loadDate;
@@ -42,7 +48,16 @@ public class HubSchema implements Schema {
         private List<HiveColumn> hubColumns;
         private String hubKeyDefinition;
         private DataDictionary.Table sourceTable;
+        private String hubKeyDelimiter;
 
+
+        public String getHubKeyDelimiter() {
+            return hubKeyDelimiter;
+        }
+
+        public void setHubKeyDelimiter(String hubKeyDelimiter) {
+            this.hubKeyDelimiter = hubKeyDelimiter;
+        }
 
         public String getHubKeyDefinition() {
             return hubKeyDefinition;
@@ -83,8 +98,7 @@ public class HubSchema implements Schema {
         }
 
         public void setHubKey(Table sourceTable) {
-            this.hubKey = hubKey;
-            hubKey = new HiveColumn("hk_" + sourceTable.getTableName(), "STRING"); // create hubTable key column
+            hubKey = new HiveColumn(PropertyHandler.getInstance().getValue("rdwHubKeyPrefix") + sourceTable.getTableName(), "STRING");
         }
 
         public HiveColumn getLoadDate() {
@@ -92,8 +106,7 @@ public class HubSchema implements Schema {
         }
 
         public void setLoadDate() {
-            this.loadDate = loadDate;
-            loadDate = new HiveColumn("load_dt", "TIMESTAMP");
+            loadDate = new HiveColumn(PropertyHandler.getInstance().getValue("rdwLoadDateColumn"), "STRING");
         }
 
         public List<HiveColumn> getBusinessKeys() {
@@ -121,6 +134,7 @@ public class HubSchema implements Schema {
         }
 
         public void setColumns() {
+
             hubColumns = new ArrayList<>();
             List<HiveColumn> columnList;
             columnList = new ArrayList<>();

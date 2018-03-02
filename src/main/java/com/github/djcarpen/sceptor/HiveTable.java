@@ -1,4 +1,4 @@
-package com.github.djcarpen.sceptor.Schema;
+package com.github.djcarpen.sceptor;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -12,6 +12,52 @@ public class HiveTable {
     private String hdfsLocation;
     private String tableName;
     private String sourceTableName;
+    private HiveTable sourceTable;
+    private String storageFormat;
+    private boolean isExternalTable;
+    private String fieldTerminator;
+    private String sourceDatabaseName;
+
+
+    public String getSourceDatabaseName() {
+        return sourceDatabaseName;
+    }
+
+    public void setSourceDatabaseName(String sourceDatabaseName) {
+        this.sourceDatabaseName = sourceDatabaseName;
+    }
+
+    public String getFieldTerminator() {
+        return fieldTerminator;
+    }
+
+    public void setFieldTerminator(String fieldTerminator) {
+        this.fieldTerminator = fieldTerminator;
+    }
+
+    public String getStorageFormat() {
+        return storageFormat;
+    }
+
+    public void setStorageFormat(String storageFormat) {
+        this.storageFormat = storageFormat;
+    }
+
+    public boolean isExternalTable() {
+        return isExternalTable;
+    }
+
+    public void setExternalTable(boolean externalTable) {
+        isExternalTable = externalTable;
+    }
+
+//    public HiveTable getSourceTable() {
+//        return sourceTable;
+//    }
+//
+//    public void setSourceTable(HiveTable sourceTable) {
+//        this.sourceTable = sourceTable;
+//    }
 
     public String getSourceTableName() {
         return sourceTableName;

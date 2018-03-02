@@ -1,4 +1,4 @@
-package com.github.djcarpen.sceptor.Schema;
+package com.github.djcarpen.sceptor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,7 @@ public class DataDictionary {
     public List<Table> getTables() {
         return tables;
     }
+
 
     public static class Table {
         private String databaseName;
@@ -61,6 +62,7 @@ public class DataDictionary {
             columns.add(column);
 
         }
+
 
         public String getCommunityName() {
             return communityName;

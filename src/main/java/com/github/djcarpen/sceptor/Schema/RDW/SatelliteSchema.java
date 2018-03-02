@@ -1,9 +1,10 @@
-package com.github.djcarpen.sceptor.Schema.DataVault;
+package com.github.djcarpen.sceptor.Schema.RDW;
 
-import com.github.djcarpen.sceptor.Schema.DataDictionary;
-import com.github.djcarpen.sceptor.Schema.DataDictionary.Table;
-import com.github.djcarpen.sceptor.Schema.DataDictionary.Table.Column;
-import com.github.djcarpen.sceptor.Schema.HiveTable;
+import com.github.djcarpen.sceptor.DataDictionary;
+import com.github.djcarpen.sceptor.DataDictionary.Table;
+import com.github.djcarpen.sceptor.DataDictionary.Table.Column;
+import com.github.djcarpen.sceptor.HiveTable;
+import com.github.djcarpen.sceptor.PropertyHandler;
 import com.github.djcarpen.sceptor.Schema.Schema;
 
 import java.util.ArrayList;
@@ -25,14 +26,18 @@ public class SatelliteSchema implements Schema {
         for (Table t : dataDictionary.getTables()) {
             SatelliteTable satelliteTable = new SatelliteTable();
             satelliteTable.setSourceTableName(t.getTableName());
-            satelliteTable.setDatabaseName(t.getDatabaseName());
-            satelliteTable.setTableName("S_" + t.getTableName());
+            satelliteTable.setSourceDatabaseName(PropertyHandler.getInstance().getValue("stagingDatabaseNamePrefix") + t.getCommunityName() + "_" + t.getAppCode() + "_" + t.getModuleCode() + "_" + t.getDatabaseName());
+
+            satelliteTable.setDatabaseName(PropertyHandler.getInstance().getValue("rdwDatabaseNamePrefix") + t.getDatabaseName());
+            satelliteTable.setTableName(PropertyHandler.getInstance().getValue("rdwSatelliteTablePrefix") + t.getTableName());
             satelliteTable.setHubKey(t);
             satelliteTable.setSourceTable(t);
             //satelliteTable.setHubKeyDefinition(t);
             satelliteTable.setLoadDate();
             satelliteTable.setColumns(t);
-            satelliteTable.setDatabaseName(t.getDatabaseName());
+            satelliteTable.addPartitionColumn(satelliteTable.getLoadDate());
+            satelliteTable.setStorageFormat(PropertyHandler.getInstance().getValue("rdwStoredAs"));
+            satelliteTable.setHdfsLocation(PropertyHandler.getInstance().getValue("rdwHdfsBasePath") + "/rdw/" + t.getCommunityName() + "/public/" + t.getDatabaseName() + "/" + PropertyHandler.getInstance().getValue("rdwSatelliteTablePrefix") + t.getTableName());
             satelliteTables.add(satelliteTable);
         }
     }
@@ -47,12 +52,12 @@ public class SatelliteSchema implements Schema {
         private HiveColumn loadDate;
         private DataDictionary.Table sourceTable;
 
-        public Table getSourceTable() {
-            return sourceTable;
-        }
-
         public void setSourceTable(Table sourceTable) {
             this.sourceTable = sourceTable;
+        }
+
+        public Table getSourceTable() {
+            return sourceTable;
         }
 
         private String hubKeyDefinition;
@@ -123,8 +128,7 @@ public class SatelliteSchema implements Schema {
         }
 
         public void setHubKey(Table sourceTable) {
-            this.satelliteKey = satelliteKey;
-            satelliteKey = new HiveColumn("hk_" + sourceTable.getTableName(), "STRING"); // create hubTable key column
+            satelliteKey = new HiveColumn(PropertyHandler.getInstance().getValue("rdwHubKeyPrefix") + sourceTable.getTableName(), "STRING"); // create hubTable key column
         }
 
         public HiveColumn getLoadDate() {
@@ -132,8 +136,7 @@ public class SatelliteSchema implements Schema {
         }
 
         public void setLoadDate() {
-            this.loadDate = loadDate;
-            loadDate = new HiveColumn("load_dt", "TIMESTAMP");
+            loadDate = new HiveColumn(PropertyHandler.getInstance().getValue("rdwLoadDateColumn"), "STRING");
         }
 
     }

@@ -1,8 +1,9 @@
-package com.github.djcarpen.sceptor.Schema.DataVault;
+package com.github.djcarpen.sceptor.Schema.RDW;
 
-import com.github.djcarpen.sceptor.Schema.DataDictionary;
-import com.github.djcarpen.sceptor.Schema.DataDictionary.Table.Column;
-import com.github.djcarpen.sceptor.Schema.HiveTable;
+import com.github.djcarpen.sceptor.DataDictionary;
+import com.github.djcarpen.sceptor.DataDictionary.Table.Column;
+import com.github.djcarpen.sceptor.HiveTable;
+import com.github.djcarpen.sceptor.PropertyHandler;
 import com.github.djcarpen.sceptor.Schema.Schema;
 
 import java.util.ArrayList;
@@ -26,10 +27,17 @@ public class LinkSchema implements Schema {
             linkTable.setLinkKey(t);
             linkTable.setLoadDate();
             linkTable.setColumns(t);
-            linkTable.setDatabaseName(t.getDatabaseName());
-            linkTable.setTableName("L_" + t.getTableName());
+            linkTable.setDatabaseName(PropertyHandler.getInstance().getValue("rdwDatabaseNamePrefix") + t.getDatabaseName());
+            linkTable.setSourceDatabaseName(PropertyHandler.getInstance().getValue("stagingDatabaseNamePrefix") + t.getCommunityName() + "_" + t.getAppCode() + "_" + t.getModuleCode() + "_" + t.getDatabaseName());
+            linkTable.setSourceTable(t);
+            linkTable.setTableName(PropertyHandler.getInstance().getValue("rdwLinkTablePrefix") + t.getTableName());
+            linkTable.setStorageFormat(PropertyHandler.getInstance().getValue("rdwStoredAs"));
+            linkTable.setHdfsLocation(PropertyHandler.getInstance().getValue("rdwHdfsBasePath") + "/rdw/" + t.getCommunityName() + "/public/" + t.getDatabaseName() + "/" + PropertyHandler.getInstance().getValue("rdwLinkTablePrefix") + t.getTableName());
+            linkTable.addPartitionColumn(linkTable.getLoadDate());
+            if (linkTable.getColumns().size() > 3) {
+                linkTables.add(linkTable);
+            }
 
-            linkTables.add(linkTable);
 
         }
 
@@ -41,7 +49,15 @@ public class LinkSchema implements Schema {
         private HiveColumn linkKey;
         private HiveColumn loadDate;
         private List<HiveColumn> linkColumns;
+        private DataDictionary.Table sourceTable;
 
+        public DataDictionary.Table getSourceTable() {
+            return sourceTable;
+        }
+
+        public void setSourceTable(DataDictionary.Table sourceTable) {
+            this.sourceTable = sourceTable;
+        }
 
         @Override
         public List<HiveColumn> getColumns() {
@@ -51,17 +67,16 @@ public class LinkSchema implements Schema {
 
         public void setColumns(DataDictionary.Table sourceTable) {
             linkColumns = new ArrayList<>();
-            HiveColumn thisTableHubKey = new HiveColumn("hk_" + sourceTable.getTableName(), "STRING");
-            linkColumns.add(thisTableHubKey);
+            HiveColumn parentTableHubKey = new HiveColumn(PropertyHandler.getInstance().getValue("rdwHubKeyPrefix") + sourceTable.getTableName(), "STRING");
             for (Column c : sourceTable.getColumns()) {
                 if (!c.getIsBusinessKey() && !c.getIsSurrogateKey() && !c.getForeignKeyColumn().isEmpty()) {
                     if (c.getColumnName().replace("_id", "").equals(c.getForeignKeyColumn())) {
-                        HiveColumn linkColumn = new HiveColumn("hk_" + c.getForeignKeyTable(), "STRING");
+                        HiveColumn linkColumn = new HiveColumn(PropertyHandler.getInstance().getValue("rdwHubKeyPrefix") + c.getForeignKeyTable(), "STRING");
                         linkColumn.setSourceColumnName(c.getColumnName());
                         linkColumn.setSourceTableName(sourceTable.getTableName());
 
-                        linkColumn.setForeignKeyColumn("hk_" + c.getForeignKeyTable());
-                        linkColumn.setForeignKeyTable("H_" + c.getForeignKeyTable());
+                        linkColumn.setForeignKeyColumn(PropertyHandler.getInstance().getValue("rdwHubKeyPrefix") + c.getForeignKeyTable());
+                        linkColumn.setForeignKeyTable(PropertyHandler.getInstance().getValue("rdwHubTablePrefix") + c.getForeignKeyTable());
                         linkColumns.add(linkColumn);
                     } else {
 
@@ -83,24 +98,18 @@ public class LinkSchema implements Schema {
                             hubKeyTokensSingular.add(hubKeyTokenizerSingular.nextToken());
                         }
 
-                        if (hubKeyTokens.containsAll(foreignKeyTokens)) {
-                            mappedLinkColumn = new HiveColumn("hk_" + c.getForeignKeyTable(), "STRING");
+                        if (hubKeyTokens.containsAll(foreignKeyTokens) || hubKeyTokensSingular.containsAll(foreignKeyTokens)) {
+                            mappedLinkColumn = new HiveColumn(PropertyHandler.getInstance().getValue("rdwHubKeyPrefix") + c.getForeignKeyTable(), "STRING");
                             mappedLinkColumn.setSourceColumnName(c.getColumnName());
                             mappedLinkColumn.setSourceTableName(sourceTable.getTableName());
-                            mappedLinkColumn.setForeignKeyColumn("hk_" + c.getForeignKeyTable());
-                            mappedLinkColumn.setForeignKeyTable("H_" + c.getForeignKeyTable());
-                        } else if (hubKeyTokensSingular.containsAll(foreignKeyTokens)) {
-                            mappedLinkColumn = new HiveColumn("hk_" + c.getForeignKeyTable(), "STRING");
-                            mappedLinkColumn.setSourceColumnName(c.getColumnName());
-                            mappedLinkColumn.setSourceTableName(sourceTable.getTableName());
-                            mappedLinkColumn.setForeignKeyColumn("hk_" + c.getForeignKeyTable());
-                            mappedLinkColumn.setForeignKeyTable("H_" + c.getForeignKeyTable());
+                            mappedLinkColumn.setForeignKeyColumn(PropertyHandler.getInstance().getValue("rdwHubKeyPrefix") + c.getForeignKeyTable());
+                            mappedLinkColumn.setForeignKeyTable(PropertyHandler.getInstance().getValue("rdwHubTablePrefix") + c.getForeignKeyTable());
                         } else {
-                            mappedLinkColumn = new HiveColumn("hk_" + c.getForeignKeyTable() + "_" + c.getColumnName().replace("_id", ""), "STRING");
+                            mappedLinkColumn = new HiveColumn(PropertyHandler.getInstance().getValue("rdwHubKeyPrefix") + c.getForeignKeyTable() + "_" + c.getColumnName().replace("_id", ""), "STRING");
                             mappedLinkColumn.setSourceColumnName(c.getColumnName());
                             mappedLinkColumn.setSourceTableName(sourceTable.getTableName());
-                            mappedLinkColumn.setForeignKeyColumn("hk_" + c.getForeignKeyTable());
-                            mappedLinkColumn.setForeignKeyTable("H_" + c.getForeignKeyTable());
+                            mappedLinkColumn.setForeignKeyColumn(PropertyHandler.getInstance().getValue("rdwHubKeyPrefix") + c.getForeignKeyTable());
+                            mappedLinkColumn.setForeignKeyTable(PropertyHandler.getInstance().getValue("rdwHubTablePrefix") + c.getForeignKeyTable());
                         }
                         linkColumns.add(mappedLinkColumn);
                     }
@@ -108,6 +117,7 @@ public class LinkSchema implements Schema {
             }
             List<HiveColumn> columnList = new ArrayList<>();
             columnList.add(linkKey);
+            columnList.add(parentTableHubKey);
             linkColumns.sort(new HiveTable.OrderByHiveColumnName());
             columnList.addAll(linkColumns);
             columnList.add(loadDate);
@@ -123,7 +133,7 @@ public class LinkSchema implements Schema {
 
         public void setLinkKey(DataDictionary.Table sourceTable) {
             this.linkKey = linkKey;
-            linkKey = new HiveColumn("lk_" + sourceTable.getTableName(), "STRING"); // create hubTable key column
+            linkKey = new HiveColumn(PropertyHandler.getInstance().getValue("rdwLinkKeyPrefix") + sourceTable.getTableName(), "STRING"); // create hubTable key column
         }
 
         public HiveColumn getLoadDate() {
@@ -131,8 +141,7 @@ public class LinkSchema implements Schema {
         }
 
         public void setLoadDate() {
-            this.loadDate = loadDate;
-            loadDate = new HiveColumn("load_dt", "TIMESTAMP");
+            loadDate = new HiveColumn(PropertyHandler.getInstance().getValue("rdwLoadDateColumn"), "STRING");
         }
 
 
