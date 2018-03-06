@@ -1,4 +1,4 @@
-package com.github.djcarpen.sceptor;
+package com.ncr.eda.apollo.sceptor;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -12,12 +12,20 @@ public class HiveTable {
     private String hdfsLocation;
     private String tableName;
     private String sourceTableName;
-    private HiveTable sourceTable;
+    private DataDictionary.Table sourceTable;
     private String storageFormat;
     private boolean isExternalTable;
     private String fieldTerminator;
     private String sourceDatabaseName;
+    private String hubKeyDelimiter;
 
+    public String getHubKeyDelimiter() {
+        return hubKeyDelimiter;
+    }
+
+    public void setHubKeyDelimiter(String hubKeyDelimiter) {
+        this.hubKeyDelimiter = hubKeyDelimiter;
+    }
 
     public String getSourceDatabaseName() {
         return sourceDatabaseName;
@@ -51,13 +59,13 @@ public class HiveTable {
         isExternalTable = externalTable;
     }
 
-//    public HiveTable getSourceTable() {
-//        return sourceTable;
-//    }
-//
-//    public void setSourceTable(HiveTable sourceTable) {
-//        this.sourceTable = sourceTable;
-//    }
+    public DataDictionary.Table getSourceTable() {
+        return sourceTable;
+    }
+
+    public void setSourceTable(DataDictionary.Table sourceTable) {
+        this.sourceTable = sourceTable;
+    }
 
     public String getSourceTableName() {
         return sourceTableName;
@@ -115,10 +123,84 @@ public class HiveTable {
         private boolean isPrimaryKey;
         private boolean isBusinessKey;
         private boolean isSurrogateKey;
+        private boolean isHubKey;
+        private boolean isLinkKey;
+        private boolean isLoadDate;
+        private boolean isEDLGenerated;
         private String foreignKeyTable;
         private String foreignKeyColumn;
         private String sourceTableName;
         private String sourceColumnName;
+        private String hubKeyDelimiter;
+
+        public String getHubKeyDelimiter() {
+            return hubKeyDelimiter;
+        }
+
+        public void setHubKeyDelimiter(String hubKeyDelimiter) {
+            this.hubKeyDelimiter = hubKeyDelimiter;
+        }
+
+        public boolean isPrimaryKey() {
+            return isPrimaryKey;
+        }
+
+        public void setPrimaryKey(boolean primaryKey) {
+            isPrimaryKey = primaryKey;
+        }
+
+        public boolean isBusinessKey() {
+            return isBusinessKey;
+        }
+
+        public void setBusinessKey(boolean businessKey) {
+            isBusinessKey = businessKey;
+        }
+
+        public boolean isSurrogateKey() {
+            return isSurrogateKey;
+        }
+
+        public void setSurrogateKey(boolean surrogateKey) {
+            isSurrogateKey = surrogateKey;
+        }
+
+        public boolean isHubKey() {
+            return isHubKey;
+        }
+
+        public void setHubKey(boolean hubKey) {
+            isHubKey = hubKey;
+        }
+
+        public boolean isLinkKey() {
+            return isLinkKey;
+        }
+
+        public void setLinkKey(boolean linkKey) {
+            isLinkKey = linkKey;
+        }
+
+        public boolean isLoadDate() {
+            return isLoadDate;
+        }
+
+        public void setLoadDate(boolean loadDate) {
+            isLoadDate = loadDate;
+        }
+
+        public boolean isEDLGenerated() {
+            return isEDLGenerated;
+        }
+
+        public void setEDLGenerated(boolean EDLGenerated) {
+            isEDLGenerated = EDLGenerated;
+        }
+
+        public String getForeignKeyColumn() {
+            return foreignKeyColumn;
+        }
+
 
         public String getSourceTableName() {
             return sourceTableName;

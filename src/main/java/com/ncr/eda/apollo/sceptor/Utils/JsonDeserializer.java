@@ -1,7 +1,7 @@
-package com.github.djcarpen.sceptor.Utils;
+package com.ncr.eda.apollo.sceptor.Utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.djcarpen.sceptor.DataDictionary;
+import com.ncr.eda.apollo.sceptor.DataDictionary;
 
 import java.io.File;
 import java.io.IOException;

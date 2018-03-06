@@ -1,11 +1,11 @@
-package com.github.djcarpen.sceptor.Schema.RDW;
+package com.ncr.eda.apollo.sceptor.Schema.RDW;
 
-import com.github.djcarpen.sceptor.DataDictionary;
-import com.github.djcarpen.sceptor.DataDictionary.Table;
-import com.github.djcarpen.sceptor.DataDictionary.Table.Column;
-import com.github.djcarpen.sceptor.HiveTable;
-import com.github.djcarpen.sceptor.PropertyHandler;
-import com.github.djcarpen.sceptor.Schema.Schema;
+import com.ncr.eda.apollo.sceptor.DataDictionary;
+import com.ncr.eda.apollo.sceptor.DataDictionary.Table;
+import com.ncr.eda.apollo.sceptor.DataDictionary.Table.Column;
+import com.ncr.eda.apollo.sceptor.HiveTable;
+import com.ncr.eda.apollo.sceptor.PropertyHandler;
+import com.ncr.eda.apollo.sceptor.Schema.Schema;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,13 +52,13 @@ public class SatelliteSchema implements Schema {
         private HiveColumn loadDate;
         private DataDictionary.Table sourceTable;
 
-        public void setSourceTable(Table sourceTable) {
-            this.sourceTable = sourceTable;
-        }
-
-        public Table getSourceTable() {
-            return sourceTable;
-        }
+//        public void setSourceTable(Table sourceTable) {
+//            this.sourceTable = sourceTable;
+//        }
+//
+//        public Table getSourceTable() {
+//            return sourceTable;
+//        }
 
         private String hubKeyDefinition;
 

@@ -1,4 +1,4 @@
-package com.github.djcarpen.sceptor.Utils;
+package com.ncr.eda.apollo.sceptor.Utils;
 
 import java.io.BufferedWriter;
 import java.io.File;

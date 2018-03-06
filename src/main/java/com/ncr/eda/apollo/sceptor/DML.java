@@ -1,11 +1,11 @@
-package com.github.djcarpen.sceptor;
+package com.ncr.eda.apollo.sceptor;
 
-import com.github.djcarpen.sceptor.Schema.RDW.HubSchema;
-import com.github.djcarpen.sceptor.Schema.RDW.LinkSchema;
-import com.github.djcarpen.sceptor.Schema.RDW.SatelliteSchema;
-import com.github.djcarpen.sceptor.Schema.StagingSchema;
-import com.github.djcarpen.sceptor.Schema.TransientSchema;
 import com.google.common.base.CaseFormat;
+import com.ncr.eda.apollo.sceptor.Schema.RDW.HubSchema;
+import com.ncr.eda.apollo.sceptor.Schema.RDW.LinkSchema;
+import com.ncr.eda.apollo.sceptor.Schema.RDW.SatelliteSchema;
+import com.ncr.eda.apollo.sceptor.Schema.StagingSchema;
+import com.ncr.eda.apollo.sceptor.Schema.TransientSchema;
 
 import java.util.*;
 
@@ -18,18 +18,28 @@ public class DML {
     LinkSchema linkSchema;
 
     public Map getDMLs(SchemaMapper schemaMapper) {
-        stagingSchema = schemaMapper.getStagingSchema();
-        transientSchema = schemaMapper.getTransientSchema();
-        hubSchema = schemaMapper.getHubSchema();
-        satelliteSchema = schemaMapper.getSatelliteSchema();
-        linkSchema = schemaMapper.getLinkSchema();
-
         Map<String, String> dmlMap = new LinkedHashMap<>();
-        stagingSchema.getTables().forEach(t -> dmlMap.put("load." + t.getDatabaseName() + "_" + t.getTableName() + ".hql", getStagingDML(t)));
-        transientSchema.getTables().forEach(t -> dmlMap.put("load." + t.getDatabaseName() + "_" + t.getTableName() + ".hql", getTransientDML(t)));
-        hubSchema.getTables().forEach(t -> dmlMap.put("load." + t.getDatabaseName() + "_" + t.getTableName() + ".hql", getHubTableDML(t)));
-        satelliteSchema.getTables().forEach(t -> dmlMap.put("load." + t.getDatabaseName() + "_" + t.getTableName() + ".hql", getSatelliteTableDML(t)));
-        linkSchema.getTables().forEach(t -> dmlMap.put("load." + t.getDatabaseName() + "_" + t.getTableName() + ".hql", getLinkDMLs(t)));
+
+        if (schemaMapper.getStagingSchema() != null) {
+            stagingSchema = schemaMapper.getStagingSchema();
+            stagingSchema.getTables().forEach(t -> dmlMap.put("create." + t.getDatabaseName() + "_" + t.getTableName() + ".hql", getStagingDML(t)));
+        }
+        if (schemaMapper.getTransientSchema() != null) {
+            transientSchema = schemaMapper.getTransientSchema();
+            transientSchema.getTables().forEach(t -> dmlMap.put("create." + t.getDatabaseName() + "_" + t.getTableName() + ".hql", getTransientDML(t)));
+        }
+        if (schemaMapper.getHubSchema() != null) {
+            hubSchema = schemaMapper.getHubSchema();
+            hubSchema.getTables().forEach(t -> dmlMap.put("create." + t.getDatabaseName() + "_" + t.getTableName() + ".hql", getHubDML(t)));
+        }
+        if (schemaMapper.getSatelliteSchema() != null) {
+            satelliteSchema = schemaMapper.getSatelliteSchema();
+            satelliteSchema.getTables().forEach(t -> dmlMap.put("create." + t.getDatabaseName() + "_" + t.getTableName() + ".hql", getSatelliteDML(t)));
+        }
+        if (schemaMapper.getLinkSchema() != null) {
+            linkSchema = schemaMapper.getLinkSchema();
+            linkSchema.getTables().forEach(t -> dmlMap.put("create." + t.getDatabaseName() + "_" + t.getTableName() + ".hql", getLinkDML(t)));
+        }
 
         return dmlMap;
     }
@@ -85,8 +95,9 @@ public class DML {
         return sb.toString();
     }
 
-    public String getHubTableDML(HubSchema.HubTable h) {
+    public String getHubDML(HiveTable h) {
         StringBuilder sb = new StringBuilder();
+        StringBuilder hubKeyJoiner = new StringBuilder("");
         StringJoiner columnJoiner = new StringJoiner(",\n");
         String hubKeyDefinition = null;
         StringJoiner hiveParameterJoiner = new StringJoiner("\nAND ");
@@ -99,40 +110,47 @@ public class DML {
                 });
             }
         }
-        for (HubSchema.HubTable hubs : hubSchema.getTables()) {
+
+        for (HiveTable hubs : hubSchema.getTables()) {
             if (hubs.getSourceTable().equals(h.getSourceTable())) {
                 hubKeyDefinition = getHubKey(hubs, hubs.getSourceTable().getTableName());
             }
         }
-        for (HubSchema.HubTable.HiveColumn c : h.getColumns()) {
 
-            if (h.getBusinessKeys().contains(c)) {
+        for (HiveTable.HiveColumn c : h.getColumns()) {
+
+            h.getColumns().forEach(col -> {
+                if (c.isHubKey()) {
+                    hubKeyJoiner.append(col.getColumnName());
+                } else if (c.isBusinessKey()) {
                 columnJoiner.add("\t" + getFormattedColumnDefinition(h.getSourceTable().getTableName() + "." + c.getSourceColumnName(), c.getDataType()) + " " + c.getColumnName());
-            } else if (h.getLoadDate().equals(c)) {
+                } else if (c.isLoadDate()) {
                 columnJoiner.add("\t" + h.getSourceTable().getTableName() + "." + c.getColumnName());
-
             }
             columnNames.add(c.getColumnName());
+            });
         }
-        for (HubSchema.HubTable.HiveColumn c : h.getPartitionColumns()) {
-            partitionJoiner.add(c.getColumnName());
+
+        for (HiveTable.HiveColumn cols : h.getPartitionColumns()) {
+            partitionJoiner.add(cols.getColumnName());
         }
 
         sb.append("INSERT INTO ").append(h.getDatabaseName()).append(".").append(h.getTableName()).append(" \n");
         sb.append("PARTITION (").append(partitionJoiner.toString()).append(")\n\t(").append(columnNames.toString()).append(")\n");
         sb.append("SELECT DISTINCT\n");
-        sb.append("\tupper(concat_ws(\"").append(h.getHubKeyDelimiter()).append("\",").append(hubKeyDefinition).append(")) ").append(h.getHubKey().getColumnName()).append(",\n");
+        sb.append("\tupper(concat_ws(\"").append(h.getHubKeyDelimiter()).append("\",").append(hubKeyDefinition).append(")) ").append(hubKeyJoiner).append(",\n");
         sb.append(columnJoiner.toString() + "\n");
         sb.append("FROM ").append(h.getSourceDatabaseName()).append(".").append(h.getSourceTable().getTableName()).append(" ").append(h.getSourceTable().getTableName()).append("\n");
         sb.append("WHERE NOT EXISTS (\tSELECT 1 FROM ").append(h.getDatabaseName()).append(".").append(h.getTableName()).append("\n");
-        sb.append("\t\t\t\t\tWHERE ").append("upper(concat_ws(\"").append(h.getHubKeyDelimiter()).append("\",").append(hubKeyDefinition).append(")) = ").append(h.getTableName()).append(".").append(h.getHubKey().getColumnName()).append(")\n");
+        sb.append("\t\t\t\t\tWHERE ").append("upper(concat_ws(\"").append(h.getHubKeyDelimiter()).append("\",").append(hubKeyDefinition).append(")) = ").append(h.getTableName()).append(".").append(hubKeyJoiner).append(")\n");
         sb.append("AND ").append(hiveParameterJoiner).append(";\n");
 
         return sb.toString();
     }
 
-    public String getSatelliteTableDML(SatelliteSchema.SatelliteTable s) {
+    public String getSatelliteDML(SatelliteSchema.SatelliteTable s) {
         StringBuilder sb = new StringBuilder();
+        /*
         String hubKeyDelimiter = null;
         StringJoiner columnJoiner = new StringJoiner(",\n");
         String tableAlias = s.getSourceTable().getTableName();
@@ -174,12 +192,13 @@ public class DML {
         sb.append(columnJoiner.toString() + "\n");
         sb.append("FROM ").append(s.getSourceDatabaseName()).append(".").append(s.getSourceTable().getTableName()).append(" ").append(tableAlias).append(" \n");
         sb.append("WHERE ").append(hiveParameterJoiner).append(";\n");
-
+*/
         return sb.toString();
     }
 
-    public String getLinkDMLs(LinkSchema.LinkTable l) {
+    public String getLinkDML(LinkSchema.LinkTable l) {
         StringBuilder sb = new StringBuilder();
+        /*
         String hubKeyDelimiter = null;
         StringJoiner columnNames = new StringJoiner(",\n\t");
         if (l.getColumns().size() > 2) {
@@ -233,11 +252,12 @@ public class DML {
             sb.append("LEFT JOIN " + tableJoiner.toString()).append("\n");
             sb.append("WHERE ").append(hiveParameterJoiner).append(";\n");
         }
+        */
 
         return sb.toString();
     }
 
-    private String getHubKey(HubSchema.HubTable table, String alias) {
+    private String getHubKey(HiveTable table, String alias) {
         StringJoiner hubKeyJoiner = new StringJoiner(", ");
         List<HiveTable.HiveColumn> businessKeys = new ArrayList<>();
         for (DataDictionary.Table.Column c : table.getSourceTable().getColumns()) {
@@ -248,7 +268,7 @@ public class DML {
                 businessKeys.add(businessKey);
             }
         }
-        for (HubSchema.HubTable.HiveColumn c : businessKeys) {
+        for (HiveTable.HiveColumn c : businessKeys) {
             hubKeyJoiner.add(getFormattedColumnDefinition(alias + "." + c.getColumnName(), c.getDataType()));
         }
         return hubKeyJoiner.toString();

@@ -1,4 +1,4 @@
-package com.github.djcarpen.sceptor;
+package com.ncr.eda.apollo.sceptor;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
@@ -13,13 +13,17 @@ public class Application {
         String jsonPath = "/Users/dc185246/Desktop/demo/json";
 
         SchemaMapper schemaMapper = new SchemaMapper(jsonPath);
+        schemaMapper.generateStagingSchema();
+        //schemaMapper.generateHubSchema();
+        //schemaMapper.getHubSchema();
+        schemaMapper.getStagingSchema();
+
         DDL ddl = new DDL();
-
-
-        DML dml = new DML();
+        //DML dml = new DML();
 
         ddl.getDDLs(schemaMapper).forEach((k, v) -> scripts.put(k.toString(), v.toString()));
-        dml.getDMLs(schemaMapper).forEach((k, v) -> scripts.put(k.toString(), v.toString()));
+
+        //dml.getDMLs(schemaMapper).forEach((k, v) -> scripts.put(k.toString(), v.toString()));
 
 
         for (Map.Entry<String, String> e : scripts.entrySet()) {
@@ -33,9 +37,6 @@ public class Application {
             System.out.println(e.getValue() + "\n");
 
         }
-
-
-
 
 
     }

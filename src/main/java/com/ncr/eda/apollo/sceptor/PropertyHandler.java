@@ -1,4 +1,4 @@
-package com.github.djcarpen.sceptor;
+package com.ncr.eda.apollo.sceptor;
 
 import java.io.FileInputStream;
 import java.io.IOException;

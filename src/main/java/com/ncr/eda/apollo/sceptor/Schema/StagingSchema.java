@@ -1,8 +1,8 @@
-package com.github.djcarpen.sceptor.Schema;
+package com.ncr.eda.apollo.sceptor.Schema;
 
-import com.github.djcarpen.sceptor.DataDictionary;
-import com.github.djcarpen.sceptor.HiveTable;
-import com.github.djcarpen.sceptor.PropertyHandler;
+import com.ncr.eda.apollo.sceptor.DataDictionary;
+import com.ncr.eda.apollo.sceptor.HiveTable;
+import com.ncr.eda.apollo.sceptor.PropertyHandler;
 
 import java.util.ArrayList;
 import java.util.Arrays;

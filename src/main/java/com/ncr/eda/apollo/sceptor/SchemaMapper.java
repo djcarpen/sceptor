@@ -1,11 +1,11 @@
-package com.github.djcarpen.sceptor;
+package com.ncr.eda.apollo.sceptor;
 
-import com.github.djcarpen.sceptor.Schema.RDW.HubSchema;
-import com.github.djcarpen.sceptor.Schema.RDW.LinkSchema;
-import com.github.djcarpen.sceptor.Schema.RDW.SatelliteSchema;
-import com.github.djcarpen.sceptor.Schema.StagingSchema;
-import com.github.djcarpen.sceptor.Schema.TransientSchema;
-import com.github.djcarpen.sceptor.Utils.JsonDeserializer;
+import com.ncr.eda.apollo.sceptor.Schema.RDW.HubSchema;
+import com.ncr.eda.apollo.sceptor.Schema.RDW.LinkSchema;
+import com.ncr.eda.apollo.sceptor.Schema.RDW.SatelliteSchema;
+import com.ncr.eda.apollo.sceptor.Schema.StagingSchema;
+import com.ncr.eda.apollo.sceptor.Schema.TransientSchema;
+import com.ncr.eda.apollo.sceptor.Utils.JsonDeserializer;
 
 import java.io.IOException;
 
@@ -23,7 +23,6 @@ public class SchemaMapper {
         this.jsonPath = jsonPath;
         JsonDeserializer jsonDeserializer = new JsonDeserializer();
         dataDictionary = jsonDeserializer.generateDataDictionary(jsonPath);
-        generateSchemas(dataDictionary);
     }
 
     public StagingSchema getStagingSchema() {
@@ -46,18 +45,42 @@ public class SchemaMapper {
         return linkSchema;
     }
 
-    private void generateSchemas(DataDictionary dataDictionary) throws IOException {
+    private void generateAllSchemas() {
         stagingSchema = new StagingSchema();
         transientSchema = new TransientSchema();
         hubSchema = new HubSchema();
         satelliteSchema = new SatelliteSchema();
         linkSchema = new LinkSchema();
 
-
         stagingSchema.generateTables(dataDictionary);
         transientSchema.generateTables(dataDictionary);
         hubSchema.generateTables(dataDictionary);
         satelliteSchema.generateTables(dataDictionary);
+        linkSchema.generateTables(dataDictionary);
+    }
+
+    public void generateStagingSchema() {
+        stagingSchema = new StagingSchema();
+        stagingSchema.generateTables(dataDictionary);
+    }
+
+    public void generateTransientSchema() {
+        transientSchema = new TransientSchema();
+        transientSchema.generateTables(dataDictionary);
+    }
+
+    public void generateHubSchema() {
+        hubSchema = new HubSchema();
+        hubSchema.generateTables(dataDictionary);
+    }
+
+    public void generateSatelliteSchema() {
+        satelliteSchema = new SatelliteSchema();
+        satelliteSchema.generateTables(dataDictionary);
+    }
+
+    public void generateLinkSchema() {
+        linkSchema = new LinkSchema();
         linkSchema.generateTables(dataDictionary);
     }
 

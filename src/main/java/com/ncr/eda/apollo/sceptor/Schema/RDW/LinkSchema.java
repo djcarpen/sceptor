@@ -1,10 +1,10 @@
-package com.github.djcarpen.sceptor.Schema.RDW;
+package com.ncr.eda.apollo.sceptor.Schema.RDW;
 
-import com.github.djcarpen.sceptor.DataDictionary;
-import com.github.djcarpen.sceptor.DataDictionary.Table.Column;
-import com.github.djcarpen.sceptor.HiveTable;
-import com.github.djcarpen.sceptor.PropertyHandler;
-import com.github.djcarpen.sceptor.Schema.Schema;
+import com.ncr.eda.apollo.sceptor.DataDictionary;
+import com.ncr.eda.apollo.sceptor.DataDictionary.Table.Column;
+import com.ncr.eda.apollo.sceptor.HiveTable;
+import com.ncr.eda.apollo.sceptor.PropertyHandler;
+import com.ncr.eda.apollo.sceptor.Schema.Schema;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,13 +51,13 @@ public class LinkSchema implements Schema {
         private List<HiveColumn> linkColumns;
         private DataDictionary.Table sourceTable;
 
-        public DataDictionary.Table getSourceTable() {
-            return sourceTable;
-        }
-
-        public void setSourceTable(DataDictionary.Table sourceTable) {
-            this.sourceTable = sourceTable;
-        }
+//        public DataDictionary.Table getSourceTable() {
+//            return sourceTable;
+//        }
+//
+//        public void setSourceTable(DataDictionary.Table sourceTable) {
+//            this.sourceTable = sourceTable;
+//        }
 
         @Override
         public List<HiveColumn> getColumns() {

@@ -1,4 +1,4 @@
-package com.github.djcarpen.sceptor;
+package com.ncr.eda.apollo.sceptor;
 
 import java.util.ArrayList;
 import java.util.List;
